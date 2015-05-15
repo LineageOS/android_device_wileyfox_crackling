@@ -23,4 +23,5 @@
                   autodetected from the Configuration. -->
     <bool name="config_showNavigationBar">true</bool>
 
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
 </resources>
