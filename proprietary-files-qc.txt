@@ -215,6 +215,9 @@ vendor/lib64/libdisp-aba.so
 -vendor/lib64/libmm-abl.so
 vendor/lib64/libmm-abl-oem.so
 
+# Power
+bin/vm_bms
+
 # Qualcomm framework
 bin/irsc_util
 vendor/lib64/libdiag.so
