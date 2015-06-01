@@ -102,4 +102,6 @@
                   Used to decide if the user can change the colors -->
     <bool name="config_multiColorBatteryLed">true</bool>
 
+    <bool name="config_enableWifiDisplay">true</bool>
+
 </resources>
