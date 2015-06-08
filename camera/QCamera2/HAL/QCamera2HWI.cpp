@@ -1108,6 +1108,12 @@ int QCamera2HardwareInterface::openCamera(struct hw_device_t **hw_device)
 {
     ATRACE_CALL();
     int rc = NO_ERROR;
+
+    if (!check_cam_access(mCameraId)) {
+        ALOGE("%s: multiple simultaneous camera instance not supported", __func__);
+        return -EUSERS;
+    }
+
     if (mCameraOpened) {
         *hw_device = NULL;
         return PERMISSION_DENIED;
