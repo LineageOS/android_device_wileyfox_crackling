@@ -104,4 +104,5 @@
 
     <bool name="config_enableWifiDisplay">true</bool>
 
+    <integer name="config_deviceHardwareKeys">64</integer>
 </resources>
