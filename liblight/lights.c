@@ -38,7 +38,7 @@ static pthread_once_t g_init = PTHREAD_ONCE_INIT;
 static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
 static struct light_state_t g_notification;
 static struct light_state_t g_battery;
-static int g_attention = 0;
+static struct light_state_t g_attention;
 
 char const*const RED_LED_FILE
         = "/sys/class/leds/red/brightness";
@@ -51,15 +51,6 @@ char const*const BLUE_LED_FILE
 
 char const*const LCD_FILE
         = "/sys/class/leds/lcd-backlight/brightness";
-
-char const*const RED_BLINK_FILE
-        = "/sys/class/leds/red/blink";
-
-char const*const GREEN_BLINK_FILE
-        = "/sys/class/leds/green/blink";
-
-char const*const BLUE_BLINK_FILE
-        = "/sys/class/leds/blue/blink";
 
 /**
  * device methods
@@ -139,9 +130,6 @@ set_speaker_light_locked(struct light_device_t* dev,
         write_int(RED_LED_FILE, 0);
         write_int(GREEN_LED_FILE, 0);
         write_int(BLUE_LED_FILE, 0);
-        write_int(RED_BLINK_FILE, 0);
-        write_int(GREEN_BLINK_FILE, 0);
-        write_int(BLUE_BLINK_FILE, 0);
         return 0;
     }
 
@@ -174,24 +162,9 @@ set_speaker_light_locked(struct light_device_t* dev,
         blink = 0;
     }
 
-    if (blink) {
-        if (red) {
-            if (write_int(RED_BLINK_FILE, blink))
-                write_int(RED_LED_FILE, 0);
-	}
-        if (green) {
-            if (write_int(GREEN_BLINK_FILE, blink))
-                write_int(GREEN_LED_FILE, 0);
-	}
-        if (blue) {
-            if (write_int(BLUE_BLINK_FILE, blink))
-                write_int(BLUE_LED_FILE, 0);
-	}
-    } else {
-        write_int(RED_LED_FILE, red);
-        write_int(GREEN_LED_FILE, green);
-        write_int(BLUE_LED_FILE, blue);
-    }
+    write_int(RED_LED_FILE, red);
+    write_int(GREEN_LED_FILE, green);
+    write_int(BLUE_LED_FILE, blue);
 
     return 0;
 }
@@ -236,13 +209,19 @@ set_light_attention(struct light_device_t* dev,
         struct light_state_t const* state)
 {
     pthread_mutex_lock(&g_lock);
+
+    g_attention = *state;
     if (state->flashMode == LIGHT_FLASH_HARDWARE) {
-        g_attention = state->flashOnMS;
+        if (g_attention.flashOnMS > 0 && g_attention.flashOffMS == 0) {
+            g_attention.flashMode = LIGHT_FLASH_NONE;
+        }
     } else if (state->flashMode == LIGHT_FLASH_NONE) {
-        g_attention = 0;
+        g_attention.color = 0;
     }
     handle_speaker_battery_locked(dev);
+
     pthread_mutex_unlock(&g_lock);
+
     return 0;
 }
 
