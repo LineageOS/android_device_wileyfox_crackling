@@ -702,6 +702,9 @@ service sensord /system/bin/sensord
     class main
     user root
 
+on property:init.svc.zygote=restarting
+    restart sensord
+
 service setup_fs /system/bin/setup_fs /dev/block/platform/7824900.sdhci/by-name/userdata
     class core
     user root
