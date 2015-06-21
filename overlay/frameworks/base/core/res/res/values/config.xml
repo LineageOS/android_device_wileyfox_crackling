@@ -48,6 +48,9 @@
         <item>255</item>
     </integer-array>
 
+    <!-- 80% -->
+    <integer name="config_screenBrightnessSettingDefault">206</integer>
+
     <bool name="config_speed_up_audio_on_mt_calls">true</bool>
 
     <bool translatable="false" name="config_wifi_batched_scan_supported">true</bool>
