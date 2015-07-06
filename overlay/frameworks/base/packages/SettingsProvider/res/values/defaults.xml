@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <bool name="def_vibrate_when_ringing_enabled">true</bool>
-    <bool name="def_usb_mass_storage_enabled">false</bool>
-    <bool name="def_wifi_on">true</bool>
     <bool name="def_notification_pulse">false</bool>
 </resources>
 
