@@ -4624,7 +4624,7 @@ int32_t QCameraParameters::initDefaultParameters()
             ANTIBANDING_MODES_MAP,
             PARAM_MAP_SIZE(ANTIBANDING_MODES_MAP));
     set(KEY_SUPPORTED_ANTIBANDING, antibandingValues);
-    setAntibanding(ANTIBANDING_OFF);
+    setAntibanding(ANTIBANDING_AUTO);
 
     // Set Effect
     String8 effectValues = createValuesString(
@@ -6642,7 +6642,7 @@ int QCameraParameters::getAutoFlickerMode()
       Currently setting it to default    */
     char prop[PROPERTY_VALUE_MAX];
     memset(prop, 0, sizeof(prop));
-    property_get("persist.camera.set.afd", prop, "3");
+    property_get("persist.camera.set.afd", prop, "4");
     return atoi(prop);
 }
 
