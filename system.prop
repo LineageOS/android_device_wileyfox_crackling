@@ -13,3 +13,6 @@ persist.radio.multisim.config=dsds
 
 # Factory reset protection
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
+# Latest hardware revision supported
+ro.product.model.platform=1
