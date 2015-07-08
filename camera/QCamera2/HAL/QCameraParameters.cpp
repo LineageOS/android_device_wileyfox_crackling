@@ -654,7 +654,7 @@ const QCameraParameters::QCameraMap<int>
 
 const QCameraParameters::QCameraMap<int>
         QCameraParameters::DENOISE_ON_OFF_MODES_MAP[] = {
-    { DENOISE_OFF, 0 },
+    { DENOISE_OFF, 1 },
     { DENOISE_ON,  1 }
 };
 
