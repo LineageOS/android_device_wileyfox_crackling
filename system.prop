@@ -10,7 +10,6 @@ ro.sf.lcd_density=320
 # Radio
 ro.telephony.default_network=9,1
 persist.radio.multisim.config=dsds
-ro.config.always_show_roaming=true
 
 # Factory reset protection
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
