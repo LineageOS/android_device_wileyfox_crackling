@@ -21,6 +21,8 @@ PRODUCT_NAME := cm_crackling
 BOARD_VENDOR := wileyfox
 PRODUCT_DEVICE := crackling
 
+PRODUCT_GMS_CLIENTID_BASE := android-wileyfox
+
 PRODUCT_MANUFACTURER := Wileyfox
 PRODUCT_MODEL := Wileyfox Swift
 
