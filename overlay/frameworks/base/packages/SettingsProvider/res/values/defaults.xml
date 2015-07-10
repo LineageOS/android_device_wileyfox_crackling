@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="def_notification_pulse">false</bool>
-    <!-- all rotation angles enabled by default -->
-    <integer name="def_accelerometer_rotation_angles">15</integer>
 </resources>
 
