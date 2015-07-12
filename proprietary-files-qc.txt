@@ -290,4 +290,5 @@ vendor/lib/libTimeService.so
 
 # WLAN
 lib/libwcnss_qmi.so
+-lib64/libwpa_qmi_eap_proxy.so
 lib64/libwcnss_qmi.so
