@@ -247,3 +247,4 @@
 /sys/devices/virtual/input/input* rept_z                      0660    input      system
 /sys/devices/virtual/input/input* test                        0660    input      system
 
+/dev/block/platform/7824900.sdhci/by-name/frp                 0600    system     system
