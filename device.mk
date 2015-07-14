@@ -92,8 +92,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     init.target.rc \
-    init.qcom.usb.rc \
-    ueventd.qcom.rc
+    init.qcom.usb.rc
 
 # Recovery
 PRODUCT_EXTRA_RECOVERY_KEYS += \
