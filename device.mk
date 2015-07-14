@@ -91,8 +91,7 @@ PRODUCT_PACKAGES += \
     sensors.msm8916
 
 PRODUCT_PACKAGES += \
-    init.target.rc \
-    init.qcom.usb.rc
+    init.target.rc
 
 # Recovery
 PRODUCT_EXTRA_RECOVERY_KEYS += \
