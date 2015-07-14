@@ -220,35 +220,35 @@ bin/vm_bms
 
 # Qualcomm framework
 bin/irsc_util
-vendor/lib64/libdiag.so
+-vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
-vendor/lib64/libdsutils.so
-vendor/lib64/libidl.so
-vendor/lib64/libqcci_legacy.so
+-vendor/lib64/libdsutils.so
+-vendor/lib64/libidl.so
+-vendor/lib64/libqcci_legacy.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdp.so
 vendor/lib64/libqmi_cci.so
-vendor/lib64/libqmi_client_qmux.so
+-vendor/lib64/libqmi_client_qmux.so
 vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
-vendor/lib64/libqmiservices.so
-vendor/lib64/libqmi.so
+-vendor/lib64/libqmiservices.so
+-vendor/lib64/libqmi.so
 vendor/lib64/libsmemlog.so
-vendor/lib/libdiag.so
+-vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
-vendor/lib/libdsutils.so
-vendor/lib/libidl.so
-vendor/lib/libqcci_legacy.so
+-vendor/lib/libdsutils.so
+-vendor/lib/libidl.so
+-vendor/lib/libqcci_legacy.so
 vendor/lib/libqdi.so
 vendor/lib/libqdp.so
 vendor/lib/libqmi_cci.so
-vendor/lib/libqmi_client_qmux.so
+-vendor/lib/libqmi_client_qmux.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
-vendor/lib/libqmiservices.so
-vendor/lib/libqmi.so
+-vendor/lib/libqmiservices.so
+-vendor/lib/libqmi.so
 vendor/lib/libsmemlog.so
 
 # Radio
@@ -266,7 +266,7 @@ etc/permissions/qcrilhook.xml
 lib64/librmnetctl.so
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libconfigdb.so
-vendor/lib64/libmdmdetect.so
+-vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libperipheral_client.so
 vendor/lib64/libril-qc-qmi-1.so
