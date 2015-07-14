@@ -17,6 +17,8 @@
 
 DEVICE_PATH := device/wileyfox/crackling
 
+TARGET_BOARD_INFO_FILE := $(DEVICE_PATH)/board-info.txt
+
 TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 
 # Kernel
