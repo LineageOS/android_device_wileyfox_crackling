@@ -85,9 +85,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml
 
-# Sensor daemon
+# Sensors
 PRODUCT_PACKAGES += \
-    sensord
+    sensord \
+    sensors.msm8916
 
 PRODUCT_PACKAGES += \
     init.target.rc \
