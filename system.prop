@@ -10,6 +10,9 @@ ro.sf.lcd_density=320
 # Radio
 ro.telephony.default_network=9,1
 persist.radio.multisim.config=dsds
+ril.ecclist=*911,#911,000,08,999,118,911,112,998
+ril.ecclist1=*911,#911,000,08,999,118,911,112,998
+
 
 # Factory reset protection
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
