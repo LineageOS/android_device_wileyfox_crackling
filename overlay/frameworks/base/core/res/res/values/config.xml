@@ -77,4 +77,6 @@
     <integer name="config_deviceHardwareKeys">64</integer>
 
     <bool name="config_allowAllRotations">true</bool>
+
+    <string name="config_useragentprofile_url" translatable="false">http://ua-profiles.cyngn.com/crackling/crackling-1016c1298e.rdf</string>
 </resources>
