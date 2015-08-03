@@ -274,6 +274,7 @@ vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
+-vendor/lib/libmdmdetect.so
 
 # Thermal
 bin/thermal-engine
