@@ -48,9 +48,6 @@
         <item>255</item>
     </integer-array>
 
-    <!-- 80% -->
-    <integer name="config_screenBrightnessSettingDefault">206</integer>
-
     <bool name="config_hotswapCapable">false</bool>
 
     <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
