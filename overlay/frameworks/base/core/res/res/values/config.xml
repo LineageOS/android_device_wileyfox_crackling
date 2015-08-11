@@ -76,4 +76,8 @@
     <bool name="config_allowAllRotations">true</bool>
 
     <string name="config_useragentprofile_url" translatable="false">http://ua-profiles.cyngn.com/crackling/crackling-1016c1298e.rdf</string>
+
+    <string name="config_mms_user_agent">Wileyfox-Swift/1.0</string>
+    <string name="config_mms_user_agent_profile_url">http://ua-profiles.cyngn.com/crackling/crackling-1016c1298e.rdf</string>
+
 </resources>
