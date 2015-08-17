@@ -31,6 +31,7 @@ TARGET_KERNEL_CONFIG := cyanogenmod_crackling-64_defconfig
 ifneq ($(TARGET_BUILD_VARIANT),user)
 TARGET_KERNEL_ADDITIONAL_CONFIG := cyanogenmod_debug_config
 endif
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
