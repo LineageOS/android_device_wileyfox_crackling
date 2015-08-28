@@ -45,6 +45,10 @@ on boot
     #set non-stand-charger can used
     write /sys/module/phy_msm_usb/parameters/floated_charger_enable Y
 
+    # Adaptive LMK
+    write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
+    write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
+
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
     class late_start
 
