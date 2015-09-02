@@ -505,9 +505,9 @@ int BstSensor::readEvents(sensors_event_t *pdata, int count)
 
 		switch (pdata_cur->sensor) {
 		case SENSORS_ACCELERATION_HANDLE:
-			pdata_cur->acceleration.x = sensor_data.data.acceleration.x / 16;
-			pdata_cur->acceleration.y = sensor_data.data.acceleration.y / 16;
-			pdata_cur->acceleration.z = sensor_data.data.acceleration.z / 16;
+			pdata_cur->acceleration.x = sensor_data.data.acceleration.x;
+			pdata_cur->acceleration.y = sensor_data.data.acceleration.y;
+			pdata_cur->acceleration.z = sensor_data.data.acceleration.z;
 			pdata_cur->acceleration.status =
 				sensor_data.data.status;
 			pdata_cur->type = SENSOR_TYPE_ACCELEROMETER;
