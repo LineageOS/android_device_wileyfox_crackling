@@ -215,6 +215,14 @@ bin/mm-pp-daemon
 vendor/lib64/libdisp-aba.so
 -vendor/lib64/libmm-abl.so
 vendor/lib64/libmm-abl-oem.so
+-vendor/lib64/libmm-disp-apis.so
+vendor/lib64/libmm-qdcm.so
+vendor/lib/libmm-abl.so
+vendor/lib/libmm-abl-oem.so
+vendor/lib/libmm-als.so
+-vendor/lib/libmm-disp-apis.so
+vendor/lib/libmm-qdcm.so
+
 
 # Power
 bin/vm_bms

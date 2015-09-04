@@ -72,6 +72,10 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.usb.id.ums_adb=2285 \
     ro.usb.vid=2970
 
+# Display
+PRODUCT_PACKAGES += \
+    pp_calib_data_booyi_OTM1287_720p_video_mode_dsi_panel.xml
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8916
