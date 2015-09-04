@@ -74,6 +74,7 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 
 # Display
 PRODUCT_PACKAGES += \
+    libjni_livedisplay_qdcm \
     pp_calib_data_booyi_OTM1287_720p_video_mode_dsi_panel.xml
 
 # GPS
