@@ -24,3 +24,6 @@ ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
 # Latest hardware revision supported
 ro.product.model.platform=1
+
+# disable all camera debug
+persist.camera.hal.debug.mask=0
