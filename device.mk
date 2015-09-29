@@ -77,6 +77,10 @@ PRODUCT_PACKAGES += \
     libjni_livedisplay_qdcm \
     pp_calib_data_booyi_OTM1287_720p_video_mode_dsi_panel.xml
 
+# TP
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/display/synaptics_dsx_fw_update_boyi.bin:system/etc/firmware/synaptics_dsx_fw_update_boyi.bin
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.msm8916
