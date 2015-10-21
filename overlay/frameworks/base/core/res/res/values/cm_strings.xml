@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
     <!-- Default wi-fi direct name -->
-    <string name="def_wifi_direct_name" translatable="false">Wileyfox Swift</string>
 </resources>
