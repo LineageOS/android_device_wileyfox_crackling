@@ -30,12 +30,16 @@
 #define ULP_PROXY_BASE_H
 
 #include <gps_extended.h>
+#ifndef OSS_BUILD
+#include "fused_location_extended.h"
+#else
+struct FlpExtLocation;
+struct FlpExtBatchOptions;
+#endif
 
 namespace loc_core {
 
 class LocAdapterBase;
-class FlpExtLocation;
-class FlpExtBatchOptions;
 
 class UlpProxyBase {
 public:
