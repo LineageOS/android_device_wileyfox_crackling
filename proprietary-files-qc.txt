@@ -120,7 +120,6 @@ vendor/lib/drm/libdrmwvmplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
 
 # GPS
-bin/location-mq
 etc/permissions/com.qualcomm.location.xml
 -lib64/libloc_api_v02.so
 -lib64/libloc_ds_api.so
@@ -137,7 +136,6 @@ vendor/lib64/libquipc_os_api.so
 vendor/lib64/libulp2.so
 vendor/lib64/libxtadapter.so
 vendor/lib64/libxtwifi_ulp_adaptor.so
-vendor/lib64/libxtwifi_zpp_adaptor.so
 vendor/lib/hw/flp.default.so
 vendor/lib/libgeofence.so
 vendor/lib/libizat_core.so
@@ -148,7 +146,6 @@ vendor/lib/libquipc_os_api.so
 vendor/lib/libulp2.so
 vendor/lib/libxtadapter.so
 vendor/lib/libxtwifi_ulp_adaptor.so
-vendor/lib/libxtwifi_zpp_adaptor.so
 
 # Graphics
 vendor/lib64/egl/eglsubAndroid.so
