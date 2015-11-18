@@ -4043,6 +4043,13 @@ int32_t QCamera2HardwareInterface::processAutoFocusEvent(cam_auto_focus_data_t &
             break;
         }
 
+        // If the HAL focus mode is different from AF INFINITY focus mode, send event to app
+        if ((focus_data.focus_mode == CAM_FOCUS_MODE_INFINITY) &&
+                (focus_data.focus_state == CAM_AF_INACTIVE)) {
+            ret = sendEvtNotify(CAMERA_MSG_FOCUS, true, 0);
+            break;
+        }
+
         if (focus_data.focus_state == CAM_AF_PASSIVE_SCANNING ||
             focus_data.focus_state == CAM_AF_PASSIVE_FOCUSED ||
             focus_data.focus_state == CAM_AF_PASSIVE_UNFOCUSED) {
@@ -4081,6 +4088,14 @@ int32_t QCamera2HardwareInterface::processAutoFocusEvent(cam_auto_focus_data_t &
         break;
     case CAM_FOCUS_MODE_CONTINOUS_VIDEO:
     case CAM_FOCUS_MODE_CONTINOUS_PICTURE:
+
+        // If the HAL focus mode is different from AF INFINITY focus mode, send event to app
+        if ((focus_data.focus_mode == CAM_FOCUS_MODE_INFINITY) &&
+                (focus_data.focus_state == CAM_AF_INACTIVE)) {
+            ret = sendEvtNotify(CAMERA_MSG_FOCUS, false, 0);
+            break;
+        }
+
         if (mActiveAF &&
             (focus_data.focus_state == CAM_AF_PASSIVE_FOCUSED ||
             focus_data.focus_state == CAM_AF_PASSIVE_UNFOCUSED)) {
