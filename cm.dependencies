@@ -5,6 +5,6 @@
   },{
     "repository": "android_kernel_cyanogen_msm8916",
     "target_path": "kernel/cyanogen/msm8916",
-    "branch": "cm-12.1-amss-2.1"
+    "branch": "cm-13.0-amss-2.1"
   }
 ]
