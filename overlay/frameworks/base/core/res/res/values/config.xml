@@ -80,4 +80,6 @@
     <string name="config_mms_user_agent">Wileyfox-Swift/1.0</string>
     <string name="config_mms_user_agent_profile_url">http://ua-profiles.cyngn.com/crackling/crackling-1016c1298e.rdf</string>
 
+    <bool name="config_eap_sim_based_auth_supported">true</bool>
+
 </resources>
