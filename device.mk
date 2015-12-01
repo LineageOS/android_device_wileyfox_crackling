@@ -115,6 +115,11 @@ PRODUCT_PACKAGES += \
     fstab.qcom \
     init.target.rc
 
+ifeq ($(TARGET_BUILD_VARIANT),user)
+PRODUCT_PACKAGES += \
+    init.qcom.ssr.rc
+endif
+
 # Recovery
 PRODUCT_EXTRA_RECOVERY_KEYS += \
     $(LOCAL_PATH)/crackling-releasekey
