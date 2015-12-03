@@ -110,3 +110,10 @@ service sensord /system/bin/sensord
 on property:init.svc.zygote=restarting
     restart sensord
 
+service calibacc /system/bin/accelcal
+    class main
+    oneshot
+    disabled
+
+on property:sys.sensors.acc=*
+    start calibacc
