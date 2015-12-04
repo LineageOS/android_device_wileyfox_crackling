@@ -8,7 +8,7 @@ persist.audio.fluence.speaker=false
 ro.sf.lcd_density=320
 
 # Radio
-ro.telephony.default_network=9,1
+ro.telephony.default_network=9,9
 persist.radio.multisim.config=dsds
 persist.radio.custom_ecc=1
 persist.radio.ecc_hard_1=998
