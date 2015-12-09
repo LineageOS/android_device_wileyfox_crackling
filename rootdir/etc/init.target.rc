@@ -29,6 +29,9 @@ on early-init
     # Turn off backlight on blank
     write /sys/class/leds/lcd-backlight/trigger "backlight"
 
+    #set non-stand-charger can used
+    write /sys/module/phy_msm_usb/parameters/floated_charger_enable Y
+
 on boot
     # charger
     chown system system /sys/bus/i2c/drivers/lc709203/batt_capacity
@@ -45,9 +48,6 @@ on boot
     chown system system /sys/class/leds/red/led_time
     chown system system /sys/class/leds/green/led_time
     chown system system /sys/class/leds/blue/led_time
-
-    #set non-stand-charger can used
-    write /sys/module/phy_msm_usb/parameters/floated_charger_enable Y
 
     # Adaptive LMK
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
