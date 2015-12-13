@@ -11,7 +11,7 @@ $(LOCAL_PATH)/../version/version.h:
 	@echo "    build date     : $(BUILD_DATE)"
 	@echo "    use case       : $(usecase)"
 	@echo ==============================
-	@mkdir $(VERSION_PATH) -p
+	@mkdir -p $(VERSION_PATH)
 	@echo "/*" > $(VERSION_PATH)/version.c
 	@echo " * This file is automatic generated," >> $(VERSION_PATH)/version.c
 	@echo " * please do not make modification" >> $(VERSION_PATH)/version.c
