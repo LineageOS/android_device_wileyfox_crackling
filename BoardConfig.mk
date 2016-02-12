@@ -69,8 +69,7 @@ TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # SELinux
 BOARD_SEPOLICY_DIRS += \
-    device/wileyfox/crackling/sepolicy
-
+    $(DEVICE_PATH)/sepolicy
 
 # inherit from the proprietary version
 -include vendor/wileyfox/crackling/BoardConfigVendor.mk
