@@ -133,7 +133,8 @@ const struct sensor_t BstSensorInfo::g_bst_sensor_list[] = {
 		maxRange: 1600.0f,
 		resolution: 0.3f,
 		power: 0.5f,
-		minDelay: 20000,
+                // THIS SHOULD BE THE VALUE OF CFG_DELAY_M_MIN * 1000!
+		minDelay: 50000,
 #if __HAL_VER__ >= __SENSORS_DEVICE_API_VERSION_1_1__
                 fifoReservedEventCount: 0,
                 fifoMaxEventCount: 0,
@@ -398,7 +399,8 @@ const struct sensor_t BstSensorInfo::g_bst_sensor_list[] = {
 		maxRange: 1600.0f,
 		resolution: 0.3f,
 		power: 0.5f,
-		minDelay: 20000,
+                // THIS SHOULD BE THE VALUE OF CFG_DELAY_M_MIN * 1000!
+		minDelay: 50000,
 #if __HAL_VER__ >= __SENSORS_DEVICE_API_VERSION_1_1__
                 fifoReservedEventCount: 0,
                 fifoMaxEventCount: 0,
