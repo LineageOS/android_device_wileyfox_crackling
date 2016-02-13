@@ -100,7 +100,7 @@
 #endif //endif of __FASTEST_MODE_100HZ__
 #define CFG_DELAY_A_MAX 200
 
-#define CFG_DELAY_M_MIN 50
+#define CFG_DELAY_M_MIN 10
 #define CFG_DELAY_M_MIN_M4G 20
 #define CFG_DELAY_M_MAX 200
 

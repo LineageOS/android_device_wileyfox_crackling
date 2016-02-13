@@ -194,7 +194,7 @@ static struct algo_work_mode g_algo_work_modes[] = {
 		min_dr_a:ALGO_DR_INVALID,
 		max_dr_a:ALGO_DR_INVALID,
 		min_dr_m:ALGO_DR_5HZ,
-		max_dr_m:ALGO_DR_20HZ,
+		max_dr_m:ALGO_DR_100HZ,
 		min_dr_g:ALGO_DR_INVALID,
 		max_dr_g:ALGO_DR_INVALID,
 	},
