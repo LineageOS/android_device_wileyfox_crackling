@@ -15,11 +15,6 @@ persist.radio.custom_ecc=1
 persist.radio.ecc_hard_1=998
 persist.radio.ecc_hard_count=1
 
-#Enable B service adj transition by default
-ro.sys.fw.bservice_enable=true
-ro.sys.fw.bservice_limit=5
-ro.sys.fw.bservice_age=5000
-
 # Factory reset protection
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
