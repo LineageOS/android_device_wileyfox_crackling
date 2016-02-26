@@ -28,3 +28,6 @@ ro.product.model.platform=1
 
 # disable all camera debug
 persist.camera.hal.debug.mask=0
+
+# Disable CPP duplication mode
+persist.camera.cpp.duplication=false
