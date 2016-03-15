@@ -53,11 +53,6 @@ on boot
     write /sys/module/lowmemorykiller/parameters/enable_adaptive_lmk 1
     write /sys/module/lowmemorykiller/parameters/vmpressure_file_min 81250
 
-service charger /charger
-    class charger
-    group log
-    seclabel u:r:healthd:s0
-
 service vm_bms /system/bin/vm_bms
     class core
     user root
