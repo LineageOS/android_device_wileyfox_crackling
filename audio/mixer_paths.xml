@@ -561,6 +561,7 @@
     <path name="speaker-mic">
         <path name="adc3" />
         <ctl name="IIR1 INP1 MUX" value="DEC1" />
+	<ctl name="RX3 Digital Volume" value="88" />
     </path>
 
     <path name="handset">
