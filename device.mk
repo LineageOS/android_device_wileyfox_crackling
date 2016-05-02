@@ -74,6 +74,10 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 PRODUCT_PACKAGES += \
     pp_calib_data_booyi_OTM1287_720p_video_mode_dsi_panel.xml
 
+# Gello
+PRODUCT_PACKAGES += \
+    Gello
+
 # TP
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/display/synaptics_dsx_fw_update_boyi.bin:system/etc/firmware/synaptics_dsx_fw_update_boyi.bin
