@@ -26,9 +26,6 @@
 #
 
 on early-init
-    # Turn off backlight on blank
-    write /sys/class/leds/lcd-backlight/trigger "backlight"
-
     #set non-stand-charger can used
     write /sys/module/phy_msm_usb/parameters/floated_charger_enable Y
 
