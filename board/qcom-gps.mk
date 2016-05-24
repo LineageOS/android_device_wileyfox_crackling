@@ -1,0 +1,3 @@
+# GPS
+USE_DEVICE_SPECIFIC_GPS := true
+TARGET_NO_RPC := true
