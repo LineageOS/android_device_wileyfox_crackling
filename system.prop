@@ -1,26 +1,2 @@
-# Audio
-ro.qc.sdk.audio.fluencetype=fluence
-persist.audio.fluence.voicecall=true
-persist.audio.fluence.voicerec=false
-persist.audio.fluence.speaker=false
-
-# Camera
-persist.camera.cpp.duplication=false
-persist.camera.hal.debug.mask=0
-
-# Display
-ro.sf.lcd_density=320
-
-# Radio
-rild.libpath=/system/vendor/lib64/libril-qc-qmi-1.so
-ro.telephony.default_network=9,9
-persist.radio.multisim.config=dsds
-persist.radio.custom_ecc=1
-persist.radio.ecc_hard_1=998
-persist.radio.ecc_hard_count=1
-
-# Factory reset protection
-ro.frp.pst=/dev/block/bootdevice/by-name/frp
-
 # Latest hardware revision supported
 ro.product.model.platform=1
