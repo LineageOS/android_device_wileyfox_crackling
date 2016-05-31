@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_f5d9a856",
+        "filename": "product/gello.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-05-31T18:25:59Z",
+      "side": 1,
+      "message": "Maybe rename this file to browser.mk instead?",
+      "revId": "5ff38a77c5759f57c097d38acf5b6b7ee811b51c",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
