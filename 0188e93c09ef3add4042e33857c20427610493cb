@@ -16,6 +16,24 @@
       "revId": "0188e93c09ef3add4042e33857c20427610493cb",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "5faad753_09177b53",
+        "filename": "product/qcom-gps.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-06-07T16:36:12Z",
+      "side": 1,
+      "message": "TBH I couldn\u0027t find a reference to anything using the two properties listed, or the property you list, other than a comment saying to set the one you list.",
+      "parentUuid": "5faad753_89c4cb60",
+      "revId": "0188e93c09ef3add4042e33857c20427610493cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
