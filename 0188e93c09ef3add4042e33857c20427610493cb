@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5faad753_89c4cb60",
+        "filename": "product/qcom-gps.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 11279
+      },
+      "writtenOn": "2016-06-07T15:09:27Z",
+      "side": 1,
+      "message": "If you want to have this set to 1, you need:\npersist.loc.nlp_name\u003dcom.qualcomm.location",
+      "revId": "0188e93c09ef3add4042e33857c20427610493cb",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
