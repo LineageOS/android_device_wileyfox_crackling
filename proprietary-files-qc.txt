@@ -208,7 +208,6 @@ vendor/lib/libsmemlog.so
 bin/netmgrd
 bin/qmuxd
 bin/radish
-bin/rfs_access
 bin/rmt_storage
 etc/permissions/com.qrd.wappush.xml
 etc/permissions/qcnvitems.xml
