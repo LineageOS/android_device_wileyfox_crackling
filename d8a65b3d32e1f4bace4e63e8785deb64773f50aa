@@ -34,6 +34,24 @@
       "revId": "d8a65b3d32e1f4bace4e63e8785deb64773f50aa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_51603f33",
+        "filename": "gps/sap.conf",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-08-18T19:29:22Z",
+      "side": 1,
+      "message": "Oh ok, it got switched to BOOTTIME, good.",
+      "parentUuid": "1fa4df85_9118f7d3",
+      "revId": "d8a65b3d32e1f4bace4e63e8785deb64773f50aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
