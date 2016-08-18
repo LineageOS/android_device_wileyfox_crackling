@@ -16,6 +16,24 @@
       "revId": "d8a65b3d32e1f4bace4e63e8785deb64773f50aa",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_9118f7d3",
+        "filename": "gps/sap.conf",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-08-18T19:07:42Z",
+      "side": 1,
+      "message": "https://github.com/CyanogenMod/android_device_wileyfox_crackling/blob/cm-13.0/sensors/bst/hal/SensorBase.cpp#L91",
+      "parentUuid": "1fa4df85_f13dab2c",
+      "revId": "d8a65b3d32e1f4bace4e63e8785deb64773f50aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
