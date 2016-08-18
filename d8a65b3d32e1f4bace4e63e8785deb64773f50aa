@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_f13dab2c",
+        "filename": "gps/sap.conf",
+        "patchSetId": 2
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 2936
+      },
+      "writtenOn": "2016-08-18T18:59:54Z",
+      "side": 1,
+      "message": "This might not be correct... I know sensor timestamps changed in M, I thought they were monotonic now... You might want to check me on that piece of info.",
+      "revId": "d8a65b3d32e1f4bace4e63e8785deb64773f50aa",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
