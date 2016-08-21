@@ -34,6 +34,23 @@
       "revId": "26e1d5929100cbea9f25a8ffebc4c4edf32d0611",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_6f822f52",
+        "filename": "proprietary-files-qc.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-08-21T21:28:31Z",
+      "side": 1,
+      "message": "vendor/lib/libactuator_AK7345.so missing here?",
+      "revId": "26e1d5929100cbea9f25a8ffebc4c4edf32d0611",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
