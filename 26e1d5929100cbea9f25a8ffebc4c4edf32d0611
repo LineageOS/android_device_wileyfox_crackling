@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1fa4df85_8f9a0bc3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-08-21T20:30:06Z",
+      "side": 1,
+      "message": "are these blobs not needed to be built against the BSP?",
+      "revId": "26e1d5929100cbea9f25a8ffebc4c4edf32d0611",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
