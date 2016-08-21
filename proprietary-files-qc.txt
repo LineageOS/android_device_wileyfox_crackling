@@ -56,11 +56,15 @@ vendor/lib/libmmjpeg.so
 vendor/lib/libmmqjpeg_codec.so
 vendor/lib/liboemcamera.so
 vendor/lib/libqomx_jpegenc.so
-vendor/lib/libactuator_dw9718s_olqba20.so
+
+# Camera actuator
 vendor/lib/libactuator_AK7345_camcorder.so
 vendor/lib/libactuator_AK7345_camera.so
+vendor/lib/libactuator_dw9718s_olqba20.so
 vendor/lib/libactuator_dw9718s_olqba20_camcorder.so
 vendor/lib/libactuator_dw9718s_olqba20_camera.so
+
+# Camera chromatix
 vendor/lib/libchromatix_hi545_8916_common.so
 vendor/lib/libchromatix_hi545_8916_hfr_120fps.so
 vendor/lib/libchromatix_hi545_8916_hfr_60fps.so
@@ -92,18 +96,22 @@ vendor/lib/libchromatix_s5k5e2_olq5f19_preview.so
 vendor/lib/libchromatix_s5k5e2_olq5f19_snapshot.so
 vendor/lib/libchromatix_s5k5e2_olq5f19_video.so
 vendor/lib/libchromatix_s5k5e2_olq5f19_video_hd.so
+
+# Camera eeprom
 vendor/lib/libmmcamera_s5k3m2_olqba20_eeprom.so
 vendor/lib/libmmcamera_s5k5e2_olq5f19_eeprom.so
-vendor/lib/libmmcamera_hi545_8916.so
-vendor/lib/libmmcamera_imx214_8916.so
-vendor/lib/libmmcamera_s5k3m2_olqba20.so
-vendor/lib/libmmcamera_s5k5e2_olq5f19.so
 
 # Camera firmware
 etc/firmware/cpp_firmware_v1_1_1.fw
 etc/firmware/cpp_firmware_v1_1_6.fw
 etc/firmware/cpp_firmware_v1_2_0.fw
 etc/firmware/cpp_firmware_v1_4_0.fw
+
+# Camera sensors
+vendor/lib/libmmcamera_hi545_8916.so
+vendor/lib/libmmcamera_imx214_8916.so
+vendor/lib/libmmcamera_s5k3m2_olqba20.so
+vendor/lib/libmmcamera_s5k5e2_olq5f19.so
 
 # DRM
 bin/qseecomd
@@ -162,41 +170,40 @@ bin/vm_bms
 
 # Qualcomm framework
 bin/irsc_util
--vendor/lib64/libdiag.so
+vendor/lib64/libdiag.so
 vendor/lib64/libdsi_netctrl.so
--vendor/lib64/libdsutils.so
--vendor/lib64/libidl.so
+vendor/lib64/libdsutils.so
+vendor/lib64/libidl.so
 vendor/lib64/libqcci_legacy.so
 vendor/lib64/libqdi.so
 vendor/lib64/libqdp.so
--vendor/lib64/libqmi_cci.so
+vendor/lib64/libqmi_cci.so
 vendor/lib64/libqmi_client_helper.so
--vendor/lib64/libqmi_client_qmux.so
+vendor/lib64/libqmi_client_qmux.so
 vendor/lib64/libqmi_common_so.so
 vendor/lib64/libqmi_csi.so
 vendor/lib64/libqmi_encdec.so
--vendor/lib64/libqmiservices.so
+vendor/lib64/libqmiservices.so
 vendor/lib64/libqmi.so
 vendor/lib64/libsmemlog.so
--vendor/lib/libdiag.so
+vendor/lib/libdiag.so
 vendor/lib/libdsi_netctrl.so
--vendor/lib/libdsutils.so
--vendor/lib/libidl.so
+vendor/lib/libdsutils.so
+vendor/lib/libidl.so
 vendor/lib/libqcci_legacy.so
 vendor/lib/libqdi.so
 vendor/lib/libqdp.so
--vendor/lib/libqmi_cci.so
+vendor/lib/libqmi_cci.so
 vendor/lib/libqmi_client_helper.so
--vendor/lib/libqmi_client_qmux.so
+vendor/lib/libqmi_client_qmux.so
 vendor/lib/libqmi_common_so.so
 vendor/lib/libqmi_csi.so
 vendor/lib/libqmi_encdec.so
--vendor/lib/libqmiservices.so
+vendor/lib/libqmiservices.so
 vendor/lib/libqmi.so
 vendor/lib/libsmemlog.so
 
 # Radio
--priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 -app/shutdownlistener/shutdownlistener.apk
 bin/netmgrd
 bin/qmuxd
@@ -209,10 +216,11 @@ etc/permissions/qcrilhook.xml
 -framework/com.qrd.wappush.jar
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
+-priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libconfigdb.so
--vendor/lib64/libmdmdetect.so
 vendor/lib64/liblqe.so
+vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libperipheral_client.so
 vendor/lib64/libril-qc-qmi-1.so
@@ -220,20 +228,20 @@ vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
--vendor/lib/libmdmdetect.so
+vendor/lib/libmdmdetect.so
 
 # Thermal
 vendor/bin/thermal-engine
-vendor/lib/libthermalclient.so
 vendor/lib64/libthermalclient.so
 vendor/lib64/libthermalioctl.so
+vendor/lib/libthermalclient.so
 
 # Time services
 -app/TimeService/TimeService.apk
 bin/time_daemon
 -vendor/lib64/libtime_genoff.so
--vendor/lib/libtime_genoff.so
 vendor/lib64/libTimeService.so
+-vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
 # Widevine
@@ -243,7 +251,6 @@ vendor/lib/libwvm.so|59c4c078f4b897ddac8f665309b7a3f25522f207
 vendor/lib/libWVStreamControlAPI_L1.so|6b28492ac55b9a3d86993343cf2c8b55240b3420
 vendor/lib/mediadrm/libwvdrmengine.so|301e0ef26cfc3a22efd52ebf4bb095d0a33bc68d
 
-# WLAN
-lib/libwcnss_qmi.so
--lib64/libwpa_qmi_eap_proxy.so
+# WiFi
 lib64/libwcnss_qmi.so
+-lib64/libwpa_qmi_eap_proxy.so
