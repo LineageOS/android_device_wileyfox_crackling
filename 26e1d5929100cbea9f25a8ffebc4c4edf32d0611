@@ -16,6 +16,24 @@
       "revId": "26e1d5929100cbea9f25a8ffebc4c4edf32d0611",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1fa4df85_8f83eb56",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 4550
+      },
+      "writtenOn": "2016-08-21T20:47:53Z",
+      "side": 1,
+      "message": "Per http://review.cyanogenmod.org/155486 and http://review.cyanogenmod.org/155541 we no longer need to mark these as prebuilts to satisfy linkage",
+      "parentUuid": "1fa4df85_8f9a0bc3",
+      "revId": "26e1d5929100cbea9f25a8ffebc4c4edf32d0611",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
     }
   ]
 }
