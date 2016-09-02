@@ -45,7 +45,7 @@ on post-fs-data
 service vm_bms /system/vendor/bin/vm_bms
     class core
     user root
-    group root
+    group root wakelock
 
 on charger
    wait /dev/block/bootdevice/by-name/system
