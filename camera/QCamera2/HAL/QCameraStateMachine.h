@@ -146,6 +146,7 @@ typedef enum {
     QCAMERA_INTERNAL_EVT_AWB_UPDATE,         // awb update result
     QCAMERA_INTERNAL_EVT_AE_UPDATE,          // ae update result
     QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE,   // focus position update result
+    QCAMERA_INTERNAL_EVT_RESET_FRAME_ID,     // reset frame id
     QCAMERA_INTERNAL_EVT_MAX
 } qcamera_internal_evt_type_t;
 
@@ -161,6 +162,7 @@ typedef struct {
         cam_awb_params_t awb_data;
         cam_ae_params_t ae_data;
         cam_focus_pos_info_t focus_pos;
+        uint32_t reset_frame_idx;
     };
 } qcamera_sm_internal_evt_payload_t;
 

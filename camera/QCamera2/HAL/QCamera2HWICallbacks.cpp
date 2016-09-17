@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2015, The Linux Foundataion. All rights reserved.
+/* Copyright (c) 2012-2016, The Linux Foundataion. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -491,12 +491,13 @@ bool QCamera2HardwareInterface::TsMakeupProcess(mm_camera_buf_def_t *pFrame,
     if (pStream == NULL || pFrame == NULL || pMakeupOutBuf == NULL) {
         bRet = false;
         CDBG_HIGH("%s pStream == NULL || pFrame == NULL || pMakeupOutBuf == NULL",__func__);
+        return bRet;
     }
     pthread_mutex_lock(&m_parm_lock);
     const char* pch_makeup_enable = mParameters.get(QCameraParameters::KEY_TS_MAKEUP);
     pthread_mutex_unlock(&m_parm_lock);
     if (pch_makeup_enable == NULL) {
-        CDBG_HIGH("%s pch_makeup_enable = null",__func__);
+        CDBG("%s pch_makeup_enable = null",__func__);
         return bRet = false;
     }
     bool enableMakeUp = (strcmp(pch_makeup_enable,"On") == 0)&& faceRect.left > -1 ;
@@ -1108,6 +1109,7 @@ void QCamera2HardwareInterface::video_stream_cb_routine(mm_camera_super_buf_t *s
                                                         void *userdata)
 {
     ATRACE_CALL();
+    QCameraVideoMemory *videoMemObj = NULL;
     CDBG("[KPI Perf] %s : BEGIN", __func__);
     QCamera2HardwareInterface *pme = (QCamera2HardwareInterface *)userdata;
     if (pme == NULL ||
@@ -1135,10 +1137,11 @@ void QCamera2HardwareInterface::video_stream_cb_routine(mm_camera_super_buf_t *s
     nsecs_t timeStamp;
     timeStamp = nsecs_t(frame->ts.tv_sec) * 1000000000LL + frame->ts.tv_nsec;
     CDBG("Send Video frame to services/encoder TimeStamp : %lld", timeStamp);
-    QCameraMemory *videoMemObj = (QCameraMemory *)frame->mem_info;
+    videoMemObj = (QCameraVideoMemory *)frame->mem_info;
     camera_memory_t *video_mem = NULL;
     if (NULL != videoMemObj) {
         video_mem = videoMemObj->getMemory(frame->buf_idx, (pme->mStoreMetaDataInFrame > 0)? true : false);
+        videoMemObj->updateNativeHandle(frame->buf_idx);
     }
     if (NULL != videoMemObj && NULL != video_mem) {
         pme->dumpFrameToFile(stream, frame, QCAMERA_DUMP_FRM_VIDEO);
@@ -1432,6 +1435,26 @@ void QCamera2HardwareInterface::metadata_stream_cb_routine(mm_camera_super_buf_t
 
     mm_camera_buf_def_t *frame = super_frame->bufs[0];
     cam_metadata_info_t *pMetaData = (cam_metadata_info_t *)frame->buffer;
+
+    if (pMetaData->is_frame_id_reset) {
+        // process frame ID reset
+        qcamera_sm_internal_evt_payload_t *payload =
+            (qcamera_sm_internal_evt_payload_t *)malloc(sizeof(qcamera_sm_internal_evt_payload_t));
+        if (NULL != payload) {
+            memset(payload, 0, sizeof(qcamera_sm_internal_evt_payload_t));
+            payload->evt_type = QCAMERA_INTERNAL_EVT_RESET_FRAME_ID;
+            // Reset the frame ID to 1
+            payload->reset_frame_idx = 1;
+            int32_t rc = pme->processEvt(QCAMERA_SM_EVT_EVT_INTERNAL, payload);
+            if (rc != NO_ERROR) {
+                ALOGE("%s: processEvt reset frame id failed", __func__);
+                free(payload);
+                payload = NULL;
+            }
+        } else {
+            ALOGE("%s: No memory for frame id reset qcamera_sm_internal_evt_payload_t", __func__);
+        }
+    }
 
     if (pMetaData->is_preview_frame_skip_valid) {
         pme->mPreviewFrameSkipValid = 1;
@@ -1787,7 +1810,7 @@ void QCamera2HardwareInterface::dumpJpegToFile(const void *data,
                 snprintf(buf, sizeof(buf),
                          "/data/misc/camera/%d_%d.jpg", mDumpFrmCnt, index);
                 if (true == m_bIntEvtPending) {
-                    strncpy(m_BackendFileName, buf, sizeof(buf));
+                    strlcpy(m_BackendFileName, buf, sizeof(buf));
                     mBackendFileSize = size;
                 }
 
@@ -2166,6 +2189,32 @@ bool QCameraCbNotifier::matchSnapshotNotifications(void *data,
 }
 
 /*===========================================================================
+* FUNCTION   : matchTimestampNotifications
+*
+* DESCRIPTION: matches timestamp data callbacks
+*
+* PARAMETERS :
+*   @data      : data to match
+*   @user_data : context data
+*
+* RETURN     : bool match
+*              true - match found
+*              false- match not found
+*==========================================================================*/
+bool QCameraCbNotifier::matchTimestampNotifications(void *data, void * /*user_data*/)
+{
+    qcamera_callback_argm_t *arg = ( qcamera_callback_argm_t * ) data;
+    if (NULL != arg) {
+        if ((QCAMERA_DATA_TIMESTAMP_CALLBACK == arg->cb_type) &&
+            (CAMERA_MSG_VIDEO_FRAME == arg->msg_type)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+
+/*===========================================================================
  * FUNCTION   : cbNotifyRoutine
  *
  * DESCRIPTION: callback thread which interfaces with the upper layers
@@ -2408,6 +2457,29 @@ void QCameraCbNotifier::setCallbacks(camera_notify_callback notifyCb,
               __func__);
     }
 }
+
+/*===========================================================================
+* FUNCTION   : flushVideoNotifications
+*
+* DESCRIPTION: flush all pending video notifications
+*              from the notifier queue
+*
+* PARAMETERS : None
+*
+* RETURN     : int32_t type of status
+*              NO_ERROR  -- success
+*              none-zero failure code
+*==========================================================================*/
+int32_t QCameraCbNotifier::flushVideoNotifications()
+{
+    if (!mActive) {
+        ALOGE("notify thread is not active");
+        return UNKNOWN_ERROR;
+    }
+    mDataQ.flushNodes(matchTimestampNotifications);
+    return NO_ERROR;
+}
+
 
 /*===========================================================================
  * FUNCTION   : startSnapshots
