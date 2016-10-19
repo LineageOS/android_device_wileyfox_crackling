@@ -324,6 +324,7 @@ public:
 
     //Longshot
     static const char KEY_QC_LONGSHOT_SUPPORTED[];
+    static const char KEY_QC_MAX_LONGSHOT_SNAP[];
 
     //livesnap support for 4K2K video resolutions
     static const char KEY_QC_4K2K_LIVESNAP_SUPPORTED[];
@@ -620,6 +621,8 @@ public:
                                               // no change in parameters value
     uint32_t getJpegQuality();
     uint32_t getJpegRotation();
+    void setFocusState(cam_autofocus_state_t focusState) { mFocusState = focusState; };
+    cam_autofocus_state_t getFocusState() { return mFocusState; };
     uint32_t getJpegExifRotation();
     bool useJpegExifRotation();
     int32_t getEffectValue();
@@ -657,6 +660,7 @@ public:
     bool isMobicatEnabled();
 
     cam_focus_mode_type getFocusMode() const {return mFocusMode;};
+    bool isAFRunning();
     int32_t setNumOfSnapshot();
     int32_t adjustPreviewFpsRange(cam_fps_range_t *fpsRange);
     bool isJpegPictureFormat() {return (mPictureFormat == CAM_FORMAT_JPEG);};
@@ -689,6 +693,7 @@ public:
     uint8_t getNumOfExtraBuffersForImageProc();
     uint8_t getNumOfExtraBuffersForVideo();
     uint8_t getNumOfExtraBuffersForPreview();
+    int getNumOfBuffersForLongshotLimitedMode();
     bool needThumbnailReprocess(uint32_t *pFeatureMask);
     inline bool isUbiFocusEnabled() {return m_bAFBracketingOn && !m_bReFocusOn;};
     inline bool isMultiTouchFocusSelected() {return m_bMultiTouchFocusOn;};
@@ -739,6 +744,8 @@ public:
     int32_t setIntEvent(cam_int_evt_params_t params);
     uint8_t getLongshotStages();
     inline bool isLowPowerEnabled() {return m_bLowPowerMode;};
+    inline bool isLongshotSnapsLimited() {return m_bIsLongshotLimited;};
+    inline int getMaxLongshotNum() {return m_nMaxLongshotNum;};
 
 private:
     int32_t setPreviewSize(const QCameraParameters& );
@@ -806,6 +813,7 @@ private:
     int32_t setFaceRecognition(const QCameraParameters& );
     int32_t setFlip(const QCameraParameters& );
     int32_t setBurstNum(const QCameraParameters& params);
+    int32_t setMaxLongshotNum(const QCameraParameters& params);
     int32_t setSnapshotFDReq(const QCameraParameters& );
     int32_t setStatsDebugMask();
     int32_t setISPDebugMask();
@@ -905,6 +913,7 @@ private:
     // ops to tempororily update parameter entries and commit
     int32_t updateParamEntry(const char *key, const char *value);
     int32_t commitParamChanges();
+    void updateViewAngles();
 
     // Map from strings to values
     static const cam_dimension_t THUMBNAIL_SIZES_MAP[];
@@ -1002,6 +1011,9 @@ private:
     bool m_bSensorHDREnabled;             // if HDR is enabled
     bool m_bIsLowMemoryDevice;
     bool m_bLowPowerMode;
+    bool m_bIsLongshotLimited;
+    int m_nMaxLongshotNum;
+    cam_autofocus_state_t mFocusState;
 };
 
 }; // namespace qcamera
