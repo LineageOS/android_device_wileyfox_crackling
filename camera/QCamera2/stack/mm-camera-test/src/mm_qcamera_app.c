@@ -379,6 +379,10 @@ int mm_app_stream_initbuf(cam_frame_len_offset_t *frame_offset_info,
         }
         return -1;
     }
+    if (stream->num_of_bufs > MM_CAMERA_MAX_NUM_FRAMES) {
+        CDBG_ERROR("%s: more stream buffers per stream than allowed", __func__);
+        return -1;
+    }
 
     rc = mm_app_alloc_bufs(&stream->s_bufs[0],
                            frame_offset_info,
@@ -2594,6 +2598,44 @@ int mm_app_set_face_detection(mm_camera_test_obj_t *test_obj,
     return mm_app_set_params_impl(test_obj, CAM_INTF_PARM_FD,
                               sizeof(cam_fd_set_parm_t),
                               fd_set_parm);
+}
+
+int mm_app_set_flash_mode(mm_camera_test_obj_t *test_obj,
+                cam_flash_mode_t flashMode)
+{
+    int rc = MM_CAMERA_OK;
+
+    if (test_obj == NULL) {
+        CDBG_ERROR("%s, invalid params!", __func__);
+        return MM_CAMERA_E_INVALID_INPUT;
+    }
+
+    rc = initBatchUpdate(test_obj);
+    if (rc != MM_CAMERA_OK) {
+        CDBG_ERROR("%s: Batch camera parameter update failed\n", __func__);
+        goto ERROR;
+    }
+
+    int32_t value = flashMode;
+    rc = AddSetParmEntryToBatch(test_obj,
+                                CAM_INTF_PARM_LED_MODE,
+                                sizeof(value),
+                                &value);
+    if (rc != MM_CAMERA_OK) {
+        CDBG_ERROR("%s: Flash parameter not added to batch\n", __func__);
+        goto ERROR;
+    }
+
+    rc = commitSetBatch(test_obj);
+    if (rc != MM_CAMERA_OK) {
+        CDBG_ERROR("%s: Batch parameters commit failed\n", __func__);
+        goto ERROR;
+    }
+
+    CDBG_ERROR("%s: Flash set to: %d", __func__, value);
+
+ERROR:
+    return rc;
 }
 
 int mm_app_set_metadata_usercb(mm_camera_test_obj_t *test_obj,

@@ -462,21 +462,22 @@ int32_t mm_stream_fsm_inited(mm_stream_t *my_obj,
     int32_t rc = 0;
     char dev_name[MM_CAMERA_DEV_NAME_LEN];
     char t_devname[MM_CAMERA_DEV_NAME_LEN];
-    const char *temp_dev_name = mm_camera_util_get_dev_name(my_obj->ch_obj->cam_obj->my_hdl);
+    const char *temp_dev_name = NULL;
 
     CDBG("%s: E, my_handle = 0x%x, fd = %d, state = %d",
          __func__, my_obj->my_hdl, my_obj->fd, my_obj->state);
-    if (temp_dev_name == NULL) {
-        CDBG_ERROR("%s: dev name is NULL",__func__);
-        rc = -1;
-        return rc;
-    }
 
     switch(evt) {
     case MM_STREAM_EVT_ACQUIRE:
         if ((NULL == my_obj->ch_obj) ||
                 ((NULL != my_obj->ch_obj) && (NULL == my_obj->ch_obj->cam_obj))) {
             CDBG_ERROR("%s: NULL channel or camera obj\n", __func__);
+            rc = -1;
+            break;
+        }
+        temp_dev_name = mm_camera_util_get_dev_name(my_obj->ch_obj->cam_obj->my_hdl);
+        if (temp_dev_name == NULL) {
+            CDBG_ERROR("%s: dev name is NULL",__func__);
             rc = -1;
             break;
         }
