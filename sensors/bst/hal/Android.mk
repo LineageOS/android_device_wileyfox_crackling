@@ -60,7 +60,6 @@ LOCAL_PRELINK_MODULE := false
 include $(LOCAL_PATH)/../tools/l8150_config.mk
 
 include $(LOCAL_PATH)/../tools/options.mk
-include $(LOCAL_PATH)/../tools/buildversion.mk
 
 ifeq (true, $(bmp_support))
 LOCAL_SRC_FILES += BstSensorPressure.cpp
