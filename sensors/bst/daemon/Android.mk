@@ -73,7 +73,6 @@ endif
 include $(LOCAL_PATH)/../tools/l8150_config.mk
 
 include $(LOCAL_PATH)/../tools/options.mk
-include $(LOCAL_PATH)/../tools/buildversion.mk
 
 ifeq (true, $(flip_gesture_support))
 LOCAL_SRC_FILES += src/channel_gest_flip.c
