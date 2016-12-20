@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5f681702_3629f289",
+        "filename": "overlay/vendor/cmsdk/cm/res/config.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 7880
+      },
+      "writtenOn": "2016-12-20T11:52:19Z",
+      "side": 1,
+      "message": "This should be 3, not 11.",
+      "revId": "abd1b749d808f12aee02e01c12194429f73da13a",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
