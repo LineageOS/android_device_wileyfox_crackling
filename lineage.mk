@@ -1,4 +1,5 @@
 # Copyright (C) 2015 The CyanogenMod Project
+# Copyright (C) 2017 LineageOS
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +21,7 @@ $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 # Must define platform variant before including any common things
 TARGET_BOARD_PLATFORM_VARIANT := msm8916
 
-PRODUCT_NAME := cm_crackling
+PRODUCT_NAME := lineage_crackling
 BOARD_VENDOR := wileyfox
 PRODUCT_DEVICE := crackling
 
