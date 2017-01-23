@@ -33,7 +33,7 @@ LOCAL_CFLAGS += -D__HAL_VER__=__SENSORS_DEVICE_API_VERSION_1_1__
 else ifeq (5.0, $(android_version))
 LOCAL_CFLAGS += -D__HAL_VER__=__SENSORS_DEVICE_API_VERSION_1_3__
 else
-	$(warning ----android_version is not configured)
+$(warning ----android_version is not configured)
 endif
 
 # bma255
@@ -142,7 +142,7 @@ LOCAL_CFLAGS += -D__RESET_CALIBRATION_PROFILE__
 endif
 
 ifeq (, $(findstring) $(usecase), $(usecase_candidates))
-	$(warning ---usecase is not configured)
+$(warning ---usecase is not configured)
 endif
 
 ifeq (true, $(gyro_only))
