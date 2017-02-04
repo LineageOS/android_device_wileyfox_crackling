@@ -17,6 +17,8 @@
 
 set -e
 
+export INITIAL_COPYRIGHT_YEAR=2015
+
 # Required!
 DEVICE=crackling
 VENDOR=wileyfox
