@@ -19,5 +19,5 @@ include device/wileyfox/crackling/board/*.mk
 
 TARGET_BOARD_INFO_FILE := device/wileyfox/crackling/board-info.txt
 
-# inherit from proprietary files
+# Inherit from proprietary files
 -include vendor/wileyfox/crackling/BoardConfigVendor.mk

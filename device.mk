@@ -23,4 +23,5 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 # Include package config fragments
 include $(LOCAL_PATH)/product/*.mk
 
-$(call inherit-product-if-exists, vendor/wileyfox/crackling/crackling-vendor.mk)
+# Call the proprietary setup
+$(call inherit-product, vendor/wileyfox/crackling/crackling-vendor.mk)
