@@ -40,8 +40,14 @@ extern "C" {
 #include <mm_camera_interface.h>
 }
 
-//OFFSET, SIZE, USAGE, TIMESTAMP, FORMAT
-#define VIDEO_METADATA_NUM_INTS 5
+//OFFSET, SIZE, USAGE, TIMESTAMP, FORMAT, BUFFER INDEX
+#define VIDEO_METADATA_NUM_INTS 6
+
+#ifdef USE_MEDIA_EXTENSIONS
+#ifndef VIDEO_METADATA_NUM_COMMON_INTS
+#define VIDEO_METADATA_NUM_COMMON_INTS 1
+#endif
+#endif
 
 namespace qcamera {
 
@@ -195,14 +201,22 @@ public:
     virtual void deallocate();
     virtual camera_memory_t *getMemory(uint32_t index, bool metadata) const;
     virtual int getMatchBufIndex(const void *opaque, bool metadata) const;
-    native_handle_t *updateNativeHandle(uint32_t index, bool metadata = true);
-    int closeNativeHandle(const void *data, bool metadata = true);
+#ifdef USE_MEDIA_EXTENSIONS
+    native_handle_t *getNativeHandle(uint32_t index, bool metadata = true);
+    int closeNativeHandle(const void *data, bool metadata);
     static int closeNativeHandle(const void *data);
-
+#endif
+    int getUsage(){return mUsage;};
+    int getFormat(){return mFormat;};
+    void setVideoInfo(int usage, cam_format_t format);
+    int convCamtoOMXFormat(cam_format_t format);
 private:
     camera_memory_t *mMetadata[MM_CAMERA_MAX_NUM_FRAMES];
     uint8_t mMetaBufCount;
+#ifdef USE_MEDIA_EXTENSIONS
     native_handle_t *mNativeHandle[MM_CAMERA_MAX_NUM_FRAMES];
+#endif
+    int mUsage, mFormat;
 };
 
 // Gralloc Memory is acquired from preview window

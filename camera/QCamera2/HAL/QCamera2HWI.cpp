@@ -540,17 +540,6 @@ void QCamera2HardwareInterface::release_recording_frame(
     }
     CDBG("%s: E", __func__);
 
-    //Close and delete duplicated native handle and FD's
-    if ((hw->mVideoMem != NULL)&&(hw->mStoreMetaDataInFrame>0)) {
-        ret = hw->mVideoMem->closeNativeHandle(opaque,TRUE);
-        if (ret != NO_ERROR) {
-            ALOGE("Invalid video metadata");
-            return;
-        }
-    } else {
-        ALOGW("Possible FD leak. Release recording called after stop");
-    }
-
     hw->lockAPI();
     qcamera_api_result_t apiResult;
     ret = hw->processAPI(QCAMERA_SM_EVT_RELEASE_RECORIDNG_FRAME, (void *)opaque);
@@ -1040,8 +1029,7 @@ QCamera2HardwareInterface::QCamera2HardwareInterface(uint32_t cameraId)
       mPreviewFrameSkipValid(0),
       mNumPreviewFaces(-1),
       mAdvancedCaptureConfigured(false),
-      mFPSReconfigure(false),
-      mVideoMem(NULL)
+      mFPSReconfigure(false)
 {
 #ifdef TARGET_TS_MAKEUP
     mMakeUpBuf = NULL;
@@ -1834,8 +1822,12 @@ QCameraMemory *QCamera2HardwareInterface::allocateStreamBuf(
             CDBG_HIGH("%s: %s video buf allocated ", __func__,
                     (bCachedMem == 0) ? "Uncached" : "Cached" );
             QCameraVideoMemory *videoMemory = new QCameraVideoMemory(mGetMemory, bCachedMem);
+            int usage = 0;
+            cam_format_t fmt;
+            mParameters.getStreamFormat(CAM_STREAM_TYPE_VIDEO,fmt);
+            videoMemory->setVideoInfo(usage, fmt);
+
             mem = videoMemory;
-            mVideoMem = videoMemory;
         }
         break;
     case CAM_STREAM_TYPE_DEFAULT:
@@ -2228,7 +2220,6 @@ int QCamera2HardwareInterface::startRecording()
 {
     int32_t rc = NO_ERROR;
     CDBG_HIGH("%s: E", __func__);
-    mVideoMem = NULL;
     if (mParameters.getRecordingHintValue() == false) {
         CDBG_HIGH("%s: start recording when hint is false, stop preview first", __func__);
         stopPreview();
@@ -2311,7 +2302,6 @@ int QCamera2HardwareInterface::stopRecording()
         }
     }
 #endif
-    mVideoMem = NULL;
     CDBG_HIGH("%s: X", __func__);
     return rc;
 }

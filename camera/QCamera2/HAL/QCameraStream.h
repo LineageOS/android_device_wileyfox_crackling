@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2014, The Linux Foundataion. All rights reserved.
+/* Copyright (c) 2012-2014,2016 The Linux Foundataion. All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are
@@ -114,7 +114,7 @@ public:
     uint32_t mDumpSkipCnt;
 
     void cond_wait();
-    void cond_signal();
+    void cond_signal(bool forceExit = false);
 
 private:
     uint32_t mCamHandle;
@@ -134,6 +134,7 @@ private:
 
     QCameraHeapMemory *mStreamInfoBuf;
     QCameraMemory *mStreamBufs;
+    QCameraMemory *mStreamBatchBufs;
     QCameraAllocator &mAllocator;
     mm_camera_buf_def_t *mBufDefs;
     cam_frame_len_offset_t mFrameLenOffset;
