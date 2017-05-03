@@ -115,7 +115,6 @@ vendor/lib/libmmcamera_s5k5e2_olq5f19.so
 
 # DRM
 bin/qseecomd
-lib/libdrmdecrypt.so
 vendor/lib64/libdrmfs.so
 vendor/lib64/libdrmtime.so
 vendor/lib64/libQSEEComAPI.so
@@ -277,6 +276,7 @@ etc/permissions/qcrilhook.xml
 -framework/com.qrd.wappush.jar
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
+lib64/librilqmiservices.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
 vendor/lib64/libcneapiclient.so
 vendor/lib64/libconfigdb.so
@@ -284,9 +284,11 @@ vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libperipheral_client.so
+vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
+vendor/lib64/libsettings.so
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 vendor/lib/libmdmdetect.so
@@ -306,12 +308,10 @@ vendor/lib64/libTimeService.so
 vendor/lib/libTimeService.so
 
 # Widevine
-vendor/lib/drm/libdrmwvmplugin.so|3bee766222895f524421eb996ca6a08bcf95f19f
-vendor/lib/libwvdrm_L1.so|3eaf8ed1cb337608a1ccdb80d2c95804e7aea323
-vendor/lib/libwvm.so|59c4c078f4b897ddac8f665309b7a3f25522f207
-vendor/lib/libWVStreamControlAPI_L1.so|6b28492ac55b9a3d86993343cf2c8b55240b3420
-vendor/lib/mediadrm/libwvdrmengine.so|301e0ef26cfc3a22efd52ebf4bb095d0a33bc68d
+vendor/lib/libwvdrm_L3.so
+vendor/lib/libWVStreamControlAPI_L3.so
+vendor/lib/mediadrm/libwvdrmengine.so
 
 # WiFi
-lib64/libwcnss_qmi.so
--lib64/libwpa_qmi_eap_proxy.so
+lib64/libwcnss_qmi.so|449d9a9e8bc58a50842c49694d2b77da182fc37e
+-lib64/libwpa_qmi_eap_proxy.so|d73183e1a730aa29ed929766434da0ae668ae06d
