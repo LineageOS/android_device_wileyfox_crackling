@@ -33,3 +33,7 @@ PRODUCT_BRAND := Wileyfox
 TARGET_VENDOR := wileyfox
 TARGET_VENDOR_PRODUCT_NAME := Swift
 TARGET_VENDOR_DEVICE_NAME := crackling
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT=Wileyfox/Swift/crackling:7.1.1/N6F26Y/5506d7d322:user/release-keys \
+    PRIVATE_BUILD_DESC="crackling-user 7.1.1 N6F26Y 5506d7d322 release-keys"
