@@ -264,10 +264,8 @@ bin/netmgrd
 bin/qmuxd
 bin/radish
 bin/rmt_storage
-etc/permissions/com.qrd.wappush.xml
 etc/permissions/qcnvitems.xml
 etc/permissions/qcrilhook.xml
--framework/com.qrd.wappush.jar
 -framework/qcnvitems.jar
 -framework/qcrilhook.jar
 lib64/librilqmiservices.so
