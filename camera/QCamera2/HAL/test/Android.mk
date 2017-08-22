@@ -18,6 +18,7 @@ LOCAL_SHARED_LIBRARIES:= \
     libskia \
     libstagefright \
     libstagefright_foundation \
+    liblog \
 
 ifneq ($(call is-platform-sdk-version-at-least,18),true)
 
