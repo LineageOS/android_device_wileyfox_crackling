@@ -294,10 +294,8 @@ vendor/lib64/libTimeService.so
 -vendor/lib/libtime_genoff.so
 vendor/lib/libTimeService.so
 
-# Widevine
-vendor/lib/libwvdrm_L3.so
-vendor/lib/libWVStreamControlAPI_L3.so
-vendor/lib/mediadrm/libwvdrmengine.so
+# Widevine - from angler - OPR6.170623.017 factory image
+vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
 
 # WiFi
 lib64/libwcnss_qmi.so:vendor/lib64/libwcnss_qmi.so|449d9a9e8bc58a50842c49694d2b77da182fc37e
