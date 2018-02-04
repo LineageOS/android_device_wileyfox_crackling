@@ -3,8 +3,8 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 /dev/block/platform/soc.0/7824900.sdhci/by-name/system      /system      ext4    ro,barrier=1                                                wait,recoveryonly
-/dev/block/platform/soc.0/7824900.sdhci/by-name/userdata    /data        f2fs    nosuid,nodev,noatime,inline_xattr                           wait,check,formattable,encryptable=footer,length=-16384
-/dev/block/platform/soc.0/7824900.sdhci/by-name/userdata    /data        ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc              wait,check,formattable,encryptable=footer,length=-16384
+/dev/block/platform/soc.0/7824900.sdhci/by-name/userdata    /data        f2fs    nosuid,nodev,noatime,inline_xattr                           wait,check,formattable,encryptable=footer
+/dev/block/platform/soc.0/7824900.sdhci/by-name/userdata    /data        ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc              wait,check,formattable,encryptable=footer
 /dev/block/platform/soc.0/7824900.sdhci/by-name/cache       /cache       f2fs    nosuid,nodev,noatime,inline_xattr                           wait,check,formattable
 /dev/block/platform/soc.0/7824900.sdhci/by-name/cache       /cache       ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc              wait,check,formattable
 /dev/block/platform/soc.0/7824900.sdhci/by-name/persist     /persist     ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc              wait
