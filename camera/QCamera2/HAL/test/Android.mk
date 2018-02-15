@@ -47,6 +47,7 @@ LOCAL_C_INCLUDES += \
 LOCAL_MODULE:= camera_test
 LOCAL_32_BIT_ONLY := true
 LOCAL_MODULE_TAGS:= tests
+LOCAL_VENDOR_MODULE := true
 
 LOCAL_CFLAGS += -Wall -Wextra -Werror -Wno-unused-parameter
 LOCAL_CFLAGS += -O0
