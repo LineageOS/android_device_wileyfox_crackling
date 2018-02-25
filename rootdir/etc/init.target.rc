@@ -46,7 +46,7 @@ on boot
     chown system system /sys/class/leds/green/led_time
     chown system system /sys/class/leds/blue/led_time
 
-service vm_bms /system/bin/vm_bms
+service vm_bms /system/vendor/bin/vm_bms
     class core
     user root
     group root
