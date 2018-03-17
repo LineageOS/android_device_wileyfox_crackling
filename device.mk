@@ -1,5 +1,6 @@
 #
 # Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,8 +21,126 @@ $(call inherit-product, device/cyanogen/msm8916-common/msm8916.mk)
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
-# Include package config fragments
-include $(LOCAL_PATH)/product/*.mk
+# AAPT
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
+
+# Audio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/acdb/QRD_Bluetooth_cal.acdb:system/etc/acdbdata/QRD/QRD_Bluetooth_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_General_cal.acdb:system/etc/acdbdata/QRD/QRD_General_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Global_cal.acdb:system/etc/acdbdata/QRD/QRD_Global_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Handset_cal.acdb:system/etc/acdbdata/QRD/QRD_Handset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Hdmi_cal.acdb:system/etc/acdbdata/QRD/QRD_Hdmi_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Headset_cal.acdb:system/etc/acdbdata/QRD/QRD_Headset_cal.acdb \
+    $(LOCAL_PATH)/audio/acdb/QRD_Speaker_cal.acdb:system/etc/acdbdata/QRD/QRD_Speaker_cal.acdb \
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:system/vendor/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy.conf:system/vendor/etc/audio_policy.conf \
+    $(LOCAL_PATH)/audio/mixer_paths.xml:system/vendor/etc/mixer_paths_qrd_skui.xml
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
+
+# Camera
+PRODUCT_PACKAGES += \
+    camera.msm8916 \
+    libmm-qcamera \
+    Snap
+
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl \
+    camera.device@1.0-impl
+
+# Dalvik/HWUI
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+$(call inherit-product, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
+
+# Display
+PRODUCT_PACKAGES += \
+    libjni_livedisplay \
+    pp_calib_data_booyi_OTM1287_720p_video_mode_dsi_panel.xml
+
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8916
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/gps/flp.conf:system/vendor/etc/flp.conf \
+    $(LOCAL_PATH)/gps/gps.conf:system/vendor/etc/gps.conf \
+    $(LOCAL_PATH)/gps/izat.conf:system/vendor/etc/izat.conf \
+    $(LOCAL_PATH)/gps/sap.conf:system/vendor/etc/sap.conf
+
+# Init scripts
+PRODUCT_PACKAGES += \
+    fstab.qcom \
+    init.target.rc
+
+# Keylayout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
+    $(LOCAL_PATH)/keylayout/qpnp_pon.kl:system/usr/keylayout/qpnp_pon.kl
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service \
+    lights.msm8916
+
+# Media
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/vendor/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:system/vendor/etc/media_profiles_V1_0.xml
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/vendor/etc/permissions/android.hardware.audio.low_latency.xml \
+    frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:system/vendor/etc/permissions/android.hardware.camera.flash-autofocus.xml \
+    frameworks/native/data/etc/android.hardware.camera.front.xml:system/vendor/etc/permissions/android.hardware.camera.front.xml \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:system/vendor/etc/permissions/android.hardware.location.gps.xml \
+    frameworks/native/data/etc/android.hardware.sensor.compass.xml:system/vendor/etc/permissions/android.hardware.sensor.compass.xml \
+    frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/vendor/etc/permissions/android.hardware.sensor.gyroscope.xml \
+    frameworks/native/data/etc/android.hardware.sensor.accelerometer.xml:system/vendor/etc/permissions/android.hardware.sensor.accelerometer.xml \
+    frameworks/native/data/etc/android.hardware.sensor.light.xml:system/vendor/etc/permissions/android.hardware.sensor.light.xml \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/vendor/etc/permissions/android.hardware.sensor.proximity.xml \
+    frameworks/native/data/etc/handheld_core_hardware.xml:system/vendor/etc/permissions/handheld_core_hardware.xml
+
+# Radio
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/data/netmgr_config.xml:system/vendor/etc/data/netmgr_config.xml \
+    $(LOCAL_PATH)/configs/data/qmi_config.xml:system/vendor/etc/data/qmi_config.xml \
+    $(LOCAL_PATH)/configs/data/dsi_config.xml:system/vendor/etc/data/dsi_config.xml
+
+# Sensors
+PRODUCT_PACKAGES += \
+    accelcal \
+    AccCalibration \
+    sensord \
+    sensors.msm8916
+
+PRODUCT_PACKAGES += \
+    android.hardware.sensors@1.0-impl
+
+# Touchscreen
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/display/synaptics_dsx_fw_update_boyi.bin:system/etc/firmware/synaptics_dsx_fw_update_boyi.bin
+
+# USB ID
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.usb.id.midi=90BA \
+    ro.usb.id.midi_adb=90BB \
+    ro.usb.id.mtp=2281 \
+    ro.usb.id.mtp_adb=2282 \
+    ro.usb.id.ptp=2284 \
+    ro.usb.id.ptp_adb=2283 \
+    ro.usb.id.ums=2286 \
+    ro.usb.id.ums_adb=2285 \
+    ro.usb.vid=2970
+
+# Wi-Fi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
+    $(LOCAL_PATH)/wifi/WCNSS_qcom_wlan_nv.bin:system/vendor/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
 
 # Call the proprietary setup
 $(call inherit-product, vendor/wileyfox/crackling/crackling-vendor.mk)
