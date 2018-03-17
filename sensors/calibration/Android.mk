@@ -25,6 +25,8 @@ LOCAL_PRELINK_MODULE := false
 
 LOCAL_MODULE := accelcal
 
+LOCAL_VENDOR_MODULE := true
+
 include $(BUILD_EXECUTABLE)
 
 include $(call all-makefiles-under,$(LOCAL_PATH))
