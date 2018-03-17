@@ -37,6 +37,8 @@ endif
 
 LOCAL_MODULE_TAGS := optional
 
+LOCAL_VENDOR_MODULE := true
+
 LOCAL_CFLAGS :=\
 	-D LOG_TAG=\"bsthal\"\
 	-Wall

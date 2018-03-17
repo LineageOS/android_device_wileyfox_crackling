@@ -60,14 +60,14 @@ on charger
    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
    start vm_bms
 
-service sensord /system/bin/sensord
+service sensord /system/vendor/bin/sensord
     class main
     user root
 
 on property:init.svc.zygote=restarting
     restart sensord
 
-service calibacc /system/bin/accelcal
+service calibacc /system/vendor/bin/accelcal
     class main
     oneshot
     disabled
