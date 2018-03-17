@@ -79,7 +79,7 @@ LOCAL_SRC_FILES += src/channel_gest_flip.c
 LOCAL_CFLAGS += -D__FLIP_GESTURE__
 endif
 
-LOCAL_MODULE_PATH := $(TARGET_OUT_EXECUTABLES)
+LOCAL_VENDOR_MODULE := true
 include $(BUILD_EXECUTABLE)
 
 endif  # TARGET_SIMULATOR != true
