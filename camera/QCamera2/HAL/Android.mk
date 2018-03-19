@@ -39,10 +39,6 @@ endif
 #LOCAL_CFLAGS += -DVANILLA_HAL
 #endif
 
-ifneq ($(call is-platform-sdk-version-at-least,18),true)
-LOCAL_CFLAGS += -DUSE_JB_MR1
-endif
-
 LOCAL_CFLAGS += -DDEFAULT_DENOISE_MODE_ON
 
 LOCAL_C_INCLUDES := \
