@@ -191,9 +191,6 @@ etc/firmware/a300_pfp.fw:vendor/firmware/a300_pfp.fw
 etc/firmware/a300_pm4.fw:vendor/firmware/a300_pm4.fw
 
 # Media
-lib/libOmxVdecHevc.so:vendor/lib/libOmxVdecHevc.so
-vendor/lib/libHevcSwDecoder.so
-vendor/lib/libmmosal.so
 vendor/lib/libOmxAacDec.so
 vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
