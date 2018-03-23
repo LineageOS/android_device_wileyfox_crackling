@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1bd0d7cf_ef57cdd5",
+        "filename": "product/qcom-audio.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 6753
+      },
+      "writtenOn": "2018-03-23T11:23:34Z",
+      "side": 1,
+      "message": "mixer_paths_qrd_skui.xml",
+      "revId": "46fad0a54ef16619894fa14d1ab0671cfa30123e",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71",
+      "unresolved": false
+    }
+  ]
+}
