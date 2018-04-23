@@ -1093,7 +1093,6 @@ native_handle_t *QCameraVideoMemory::getNativeHandle(uint32_t index, bool metada
 int QCameraVideoMemory::closeNativeHandle(const void *data, bool metadata)
 {
     int32_t rc = NO_ERROR;
-    int32_t index = -1;
 
     if (metadata) {
         const media_metadata_buffer * packet = (const media_metadata_buffer*)data;
