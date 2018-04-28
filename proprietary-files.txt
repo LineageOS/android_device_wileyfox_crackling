@@ -196,9 +196,9 @@ vendor/lib/libOmxEvrcDec.so
 vendor/lib/libOmxQcelp13Dec.so
 
 # Perf
-vendor/bin/perfd
-vendor/lib64/libqti-perfd-client.so
-vendor/lib/libqti-perfd-client.so
+vendor/bin/perfd|622b2e94eaad0fc245e0075318480c3d16cbd091
+vendor/lib64/libqti-perfd-client.so|e6aa3206add696b75d2afd46f07e941ee9ba2c67
+vendor/lib/libqti-perfd-client.so|90b2007264bcda7fc706fd55becdea4c6b999233
 
 # Postprocessing
 bin/mm-pp-daemon:vendor/bin/mm-pp-daemon
