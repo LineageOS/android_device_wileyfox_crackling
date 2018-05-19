@@ -55,6 +55,9 @@ TARGET_KERNEL_CONFIG := lineageos_crackling_defconfig
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
+# Manifest
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
