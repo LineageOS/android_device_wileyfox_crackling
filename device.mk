@@ -57,7 +57,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Display
 PRODUCT_PACKAGES += \
-    libjni_livedisplay \
+    vendor.lineage.livedisplay@1.0-service-legacymm \
     pp_calib_data_booyi_OTM1287_720p_video_mode_dsi_panel.xml
 
 # GPS
