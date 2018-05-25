@@ -38,6 +38,10 @@ on boot
     chmod 0664 /sys/class/power_supply/bms/current_now
     chmod 0664 /sys/class/power_supply/bms/voltage_ocv
 
+on post-fs-data
+    mkdir /data/misc/sensors 0775 system system
+    restorecon_recursive /data/misc/sensors
+
 service vm_bms /system/vendor/bin/vm_bms
     class core
     user root
