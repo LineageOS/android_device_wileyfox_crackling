@@ -214,7 +214,7 @@ bin/vm_bms:vendor/bin/vm_bms
 # Qualcomm framework
 bin/irsc_util:vendor/bin/irsc_util
 vendor/lib64/libdiag.so
-vendor/lib64/libdsi_netctrl.so|ed28f949b542e8990d8c60262c47f01b8650f5b7
+vendor/lib64/libdsi_netctrl.so|017f7350b817950fcff1362ed85ab0abbb9a05f6
 vendor/lib64/libdsutils.so
 vendor/lib64/libidl.so
 vendor/lib64/libqcci_legacy.so
@@ -230,7 +230,7 @@ vendor/lib64/libqmiservices.so
 vendor/lib64/libqmi.so
 vendor/lib64/libsmemlog.so
 vendor/lib/libdiag.so
-vendor/lib/libdsi_netctrl.so|1a7a7edf832384b095641c432b2cbb202fdd611d
+vendor/lib/libdsi_netctrl.so|07094bcd98de5d91f0e1db444f0fe67e2c8e7990
 vendor/lib/libdsutils.so
 vendor/lib/libidl.so
 vendor/lib/libqcci_legacy.so
@@ -248,8 +248,8 @@ vendor/lib/libsmemlog.so
 
 # Radio
 -app/shutdownlistener/shutdownlistener.apk:vendor/app/shutdownlistener/shutdownlistener.apk
-bin/netmgrd:vendor/bin/netmgrd|89181b2baf575ba7dc795ac4254a8519899064e1
-bin/qmuxd:vendor/bin/qmuxd|6413a30c8bf1f5a4bf351bb29370a260cd991e39
+bin/netmgrd:vendor/bin/netmgrd|1685dd26d1fa98a0bc0143f88b84451994edd442
+bin/qmuxd:vendor/bin/qmuxd|63131ddcbd649e52c9fa973df1c06972ead894b2
 bin/radish:vendor/bin/radish
 bin/rmt_storage:vendor/bin/rmt_storage
 etc/permissions/qcnvitems.xml:vendor/etc/permissions/qcnvitems.xml|dd47edbccc24a5c254dca18250c0136ecab4f0d6
@@ -258,19 +258,15 @@ etc/permissions/qcrilhook.xml:vendor/etc/permissions/qcrilhook.xml|5a65b197fbc65
 -framework/qcrilhook.jar:vendor/framework/qcrilhook.jar
 lib64/librilqmiservices.so:vendor/lib64/librilqmiservices.so
 -priv-app/qcrilmsgtunnel/qcrilmsgtunnel.apk
-vendor/lib64/com.quicinc.cne.api@1.0.so|503825cc8a3c0d422e16e04b398d2c1924e518ca
-vendor/lib64/com.quicinc.cne.constants@1.0.so|a60fde6f9328635bf43bb7008dd9517e4e749e8b
 vendor/lib64/libcneapiclient.so|33e7465996749a8823ac03e34a94e3112c88dda4
 vendor/lib64/libconfigdb.so
 vendor/lib64/liblqe.so
 vendor/lib64/libmdmdetect.so
 vendor/lib64/libnetmgr.so
 vendor/lib64/libperipheral_client.so
-vendor/lib64/libril-qc-ltedirectdisc.so
 vendor/lib64/libril-qc-qmi-1.so
 vendor/lib64/libril-qc-radioconfig.so
 vendor/lib64/libril-qcril-hook-oem.so
-vendor/lib64/libsettings.so|3e459839d90a27d2eb23a3c9d030f46a5c4bfaf1
 vendor/lib64/libsystem_health_mon.so
 vendor/lib64/libxml.so
 vendor/lib/libmdmdetect.so
