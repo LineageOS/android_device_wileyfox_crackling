@@ -262,7 +262,7 @@ vendor/lib64/libcneapiclient.so|33e7465996749a8823ac03e34a94e3112c88dda4
 vendor/lib64/libconfigdb.so|b0bc70762dd5e1bc92df336f96599b4a041f6089
 vendor/lib64/liblqe.so|7add2a402dffd8fe52e329116b5d8741732d0b88
 vendor/lib64/libmdmdetect.so|f2285bff10734d4d26c37954b3534f82b9fb6bf7
-vendor/lib64/libnetmgr.so|9b52c85cc911841ef7039449b0c80b7ddfad2385
+vendor/lib64/libnetmgr.so|ee74ab500f9abc88d6c53ddbab51298d0191e867
 vendor/lib64/libperipheral_client.so|a2d0d11de098d1b3d02218b087868b4fbc2ba466
 vendor/lib64/libril-qc-qmi-1.so|27532cb46b1c5571cca1bb9aafc81519ddd5bc64
 vendor/lib64/libril-qc-radioconfig.so|55f16a6b1cc5e68df181d76f95c690e01068a7fe
