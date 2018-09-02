@@ -69,5 +69,14 @@ ifeq ($(WITH_TWRP),true)
 include $(DEVICE_PATH)/twrp.mk
 endif
 
+# Treble
+TARGET_COPY_OUT_VENDOR := vendor
+BOARD_VENDORIMAGE_PARTITION_SIZE := 536870912
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+PRODUCT_FULL_TREBLE_OVERRIDE := true
+PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
+PRODUCT_VENDOR_MOVE_ENABLED := true
+BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
+
 # Inherit from proprietary files
 -include vendor/wileyfox/crackling/BoardConfigVendor.mk

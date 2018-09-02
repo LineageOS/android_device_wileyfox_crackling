@@ -42,7 +42,7 @@ on post-fs-data
     mkdir /data/misc/sensor 0775 system system
     restorecon_recursive /data/misc/sensor
 
-service vm_bms /system/vendor/bin/vm_bms
+service vm_bms /vendor/bin/vm_bms
     class core
     user root
     group root
@@ -56,14 +56,14 @@ on charger
    chmod 0664 /sys/class/power_supply/bms/voltage_ocv
    start vm_bms
 
-service sensord /system/vendor/bin/sensord
+service sensord /vendor/bin/sensord
     class main
     user root
 
 on property:init.svc.zygote=restarting
     restart sensord
 
-service calibacc /system/vendor/bin/accelcal
+service calibacc /vendor/bin/accelcal
     class main
     oneshot
     disabled
