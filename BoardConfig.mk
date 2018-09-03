@@ -78,5 +78,9 @@ PRODUCT_COMPATIBILITY_MATRIX_LEVEL_OVERRIDE := 27
 PRODUCT_VENDOR_MOVE_ENABLED := true
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := true
 
+TW_USE_TOOLBOX := true
+TW_EXCLUDE_SUPERSU := true
+TW_EXCLUDE_TWRPAPP := true
+
 # Inherit from proprietary files
 -include vendor/wileyfox/crackling/BoardConfigVendor.mk
