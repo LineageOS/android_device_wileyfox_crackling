@@ -146,3 +146,6 @@ PRODUCT_COPY_FILES += \
 
 # Call the proprietary setup
 $(call inherit-product, vendor/wileyfox/crackling/crackling-vendor.mk)
+
+include device/wileyfox/crackling/vendor-prop.mk
+include device/wileyfox/crackling/default-prop.mk
