@@ -56,6 +56,10 @@ TARGET_KERNEL_CONFIG := lineageos_crackling_defconfig
 # Power
 TARGET_HAS_NO_POWER_STATS := true
 
+# VNDK
+BOARD_VNDK_RUNTIME_DISABLE := true
+BOARD_VNDK_VERSION := current
+
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
