@@ -8,7 +8,7 @@ EXTRA_VENDOR_LIBRARIES := \
     libui \
     android.hardware.configstore@1.0 \
     android.hardware.configstore-utils \
-    libsensor
+    libsensor_vendor \
     libstagefright_foundation \
     libstdc++ \
     libnativehelper \
@@ -45,7 +45,7 @@ LOCAL_MODULE := $1.$2
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_PREBUILT_MODULE_FILE := $$($$(TARGET_2ND_ARCH_VAR_PREFIX)TARGET_OUT_INTERMEDIATE_LIBRARIES)/$1.so
 LOCAL_STRIP_MODULE := false
-LOCAL_MULTILIB := both
+LOCAL_MULTILIB := 32
 LOCAL_MODULE_TAGS := optional
 LOCAL_INSTALLED_MODULE_STEM := $1.so
 LOCAL_MODULE_SUFFIX := .so

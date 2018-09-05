@@ -5,7 +5,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := libloc_eng
 LOCAL_MODULE_OWNER := qcom
 LOCAL_VENDOR_MODULE := true
-
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SHARED_LIBRARIES := \
@@ -14,7 +13,8 @@ LOCAL_SHARED_LIBRARIES := \
     libdl \
     liblog \
     libloc_core \
-    libgps.utils
+    libgps.utils \
+    libhardware
 
 LOCAL_SRC_FILES += \
     loc_eng.cpp \
@@ -42,28 +42,27 @@ LOCAL_C_INCLUDES:= \
     $(LOCAL_PATH) \
     $(TARGET_OUT_HEADERS)/libflp
 
-LOCAL_COPY_HEADERS_TO:= libloc_eng/
-LOCAL_COPY_HEADERS:= \
-   LocEngAdapter.h \
-   loc.h \
-   loc_eng.h \
-   loc_eng_xtra.h \
-   loc_eng_ni.h \
-   loc_eng_agps.h \
-   loc_eng_msg.h \
-   loc_eng_log.h
+LOCAL_HEADER_LIBRARIES := libgps.utils_headers libloc_core_headers
+
+LOCAL_VENDOR_MODULE := true
 
 include $(BUILD_SHARED_LIBRARY)
 
 include $(CLEAR_VARS)
+LOCAL_MODULE := libloc_eng_headers
+LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)
+include $(BUILD_HEADER_LIBRARY)
+
+include $(CLEAR_VARS)
 
 LOCAL_MODULE := gps.$(TARGET_BOARD_PLATFORM)
+LOCAL_MODULE_RELATIVE_PATH := hw
 LOCAL_MODULE_OWNER := qcom
 LOCAL_VENDOR_MODULE := true
-
 LOCAL_MODULE_TAGS := optional
 
 ## Libs
+
 LOCAL_SHARED_LIBRARIES := \
     libutils \
     libcutils \
@@ -71,7 +70,8 @@ LOCAL_SHARED_LIBRARIES := \
     libloc_eng \
     libloc_core \
     libgps.utils \
-    libdl
+    libdl \
+    libhardware
 
 LOCAL_SRC_FILES += \
     loc.cpp \
@@ -85,12 +85,19 @@ ifeq ($(TARGET_BUILD_VARIANT),user)
    LOCAL_CFLAGS += -DTARGET_BUILD_VARIANT_USER
 endif
 
+ifeq ($(TARGET_USES_QCOM_BSP), true)
+LOCAL_CFLAGS += -DTARGET_USES_QCOM_BSP
+endif
+
 ## Includes
 LOCAL_C_INCLUDES:= \
     $(TARGET_OUT_HEADERS)/gps.utils \
     $(TARGET_OUT_HEADERS)/libloc_core \
     $(TARGET_OUT_HEADERS)/libflp
 
+LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE_RELATIVE_PATH := hw
+
+LOCAL_HEADER_LIBRARIES := libgps.utils_headers libloc_core_headers
 
 include $(BUILD_SHARED_LIBRARY)

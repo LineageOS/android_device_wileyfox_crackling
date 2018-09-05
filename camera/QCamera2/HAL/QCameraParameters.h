@@ -19,7 +19,7 @@
 #ifndef ANDROID_HARDWARE_QCAMERA_PARAMETERS_H
 #define ANDROID_HARDWARE_QCAMERA_PARAMETERS_H
 
-#include <camera/CameraParameters.h>
+#include <CameraParameters.h>
 #include <cutils/properties.h>
 #include <hardware/camera.h>
 #include <stdlib.h>
@@ -33,6 +33,8 @@ extern "C" {
 #include <mm_jpeg_interface.h>
 }
 
+using ::android::hardware::camera::common::V1_0::helper::CameraParameters;
+using ::android::hardware::camera::common::V1_0::helper::Size;
 using namespace android;
 
 namespace qcamera {
@@ -619,8 +621,6 @@ public:
                                               // no change in parameters value
     uint32_t getJpegQuality();
     uint32_t getJpegRotation();
-    void setFocusState(cam_autofocus_state_t focusState) { mFocusState = focusState; };
-    cam_autofocus_state_t getFocusState() { return mFocusState; };
     uint32_t getJpegExifRotation();
     bool useJpegExifRotation();
     int32_t getEffectValue();
@@ -658,7 +658,6 @@ public:
     bool isMobicatEnabled();
 
     cam_focus_mode_type getFocusMode() const {return mFocusMode;};
-    bool isAFRunning();
     int32_t setNumOfSnapshot();
     int32_t adjustPreviewFpsRange(cam_fps_range_t *fpsRange);
     bool isJpegPictureFormat() {return (mPictureFormat == CAM_FORMAT_JPEG);};
@@ -1011,7 +1010,6 @@ private:
     bool m_bLowPowerMode;
     bool m_bIsLongshotLimited;
     int m_nMaxLongshotNum;
-    cam_autofocus_state_t mFocusState;
 };
 
 }; // namespace qcamera

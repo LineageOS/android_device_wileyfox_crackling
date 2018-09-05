@@ -660,7 +660,7 @@ const QCameraParameters::QCameraMap<int>
 
 const QCameraParameters::QCameraMap<int>
         QCameraParameters::DENOISE_ON_OFF_MODES_MAP[] = {
-    { DENOISE_OFF, 1 },
+    { DENOISE_OFF, 0 },
     { DENOISE_ON,  1 }
 };
 
@@ -800,8 +800,7 @@ QCameraParameters::QCameraParameters()
       m_bIsLowMemoryDevice(false),
       m_bLowPowerMode(false),
       m_bIsLongshotLimited(false),
-      m_nMaxLongshotNum(-1),
-      mFocusState(CAM_AF_NOT_FOCUSED)
+      m_nMaxLongshotNum(-1)
 {
     char value[PROPERTY_VALUE_MAX];
     // TODO: may move to parameter instead of sysprop
@@ -898,8 +897,7 @@ QCameraParameters::QCameraParameters(const String8 &params)
     m_bIsLowMemoryDevice(false),
     m_bLowPowerMode(false),
     m_bIsLongshotLimited(false),
-    m_nMaxLongshotNum(-1),
-    mFocusState(CAM_AF_NOT_FOCUSED)
+    m_nMaxLongshotNum(-1)
 {
     memset(&m_LiveSnapshotSize, 0, sizeof(m_LiveSnapshotSize));
     m_pTorch = NULL;
@@ -1335,7 +1333,7 @@ int32_t QCameraParameters::setPictureSize(const QCameraParameters& params)
 
             // set the new value
             char val[32];
-            snprintf(val, sizeof(val), "%dx%d", width, height);
+            sprintf(val, "%dx%d", width, height);
             CDBG_HIGH("%s: picture size requested %s", __func__, val);
             updateParamEntry(KEY_PICTURE_SIZE, val);
             // Update View angles based on Picture Aspect ratio
@@ -3061,8 +3059,7 @@ int32_t QCameraParameters::setMeteringAreas(const QCameraParameters& params)
 
         const char *prev_str = get(KEY_METERING_AREAS);
         if (prev_str == NULL ||
-            strcmp(str, prev_str) != 0 ||
-            (m_bNeedRestart == true)) {
+            strcmp(str, prev_str) != 0) {
             return setMeteringAreas(str);
         }
     }
@@ -4734,7 +4731,7 @@ int32_t QCameraParameters::initDefaultParameters()
             ANTIBANDING_MODES_MAP,
             PARAM_MAP_SIZE(ANTIBANDING_MODES_MAP));
     set(KEY_SUPPORTED_ANTIBANDING, antibandingValues);
-    setAntibanding(ANTIBANDING_AUTO);
+    setAntibanding(ANTIBANDING_OFF);
 
     // Set Effect
     String8 effectValues = createValuesString(
@@ -5137,7 +5134,7 @@ int32_t QCameraParameters::initDefaultParameters()
     CDBG_HIGH("%s: totalram = %ld, freeram = %ld ", __func__, info.totalram,
         info.freeram);
     if (info.totalram > TOTAL_RAM_SIZE_512MB) {
-        set(KEY_QC_ZSL_HDR_SUPPORTED, VALUE_TRUE);
+        set(KEY_QC_ZSL_HDR_SUPPORTED, VALUE_FALSE);
     } else {
         m_bIsLowMemoryDevice = true;
         set(KEY_QC_ZSL_HDR_SUPPORTED, VALUE_FALSE);
@@ -5147,7 +5144,7 @@ int32_t QCameraParameters::initDefaultParameters()
     // Livesnapshot is not supported for 4K2K video resolutions
     set(KEY_QC_4K2K_LIVESNAP_SUPPORTED, VALUE_FALSE);
     //Set video buffers as uncached by default
-    set(KEY_QC_CACHE_VIDEO_BUFFERS, VALUE_DISABLE);
+    set(KEY_QC_CACHE_VIDEO_BUFFERS, "0");
 
     if (m_pCapability->low_power_mode_supported == 1) {
         set(KEY_QC_LOW_POWER_MODE_SUPPORTED, VALUE_TRUE);
@@ -5543,7 +5540,7 @@ int32_t QCameraParameters::setEffect(const char *effect)
 int32_t QCameraParameters::setBrightness(int brightness)
 {
     char val[16];
-    snprintf(val, sizeof(val), "%d", brightness);
+    sprintf(val, "%d", brightness);
     updateParamEntry(KEY_QC_BRIGHTNESS, val);
 
     int32_t value = brightness;
@@ -5715,7 +5712,7 @@ void  QCameraParameters::updateCurrentFocusPosition(cam_focus_pos_info_t &cur_po
 int32_t QCameraParameters::setSharpness(int sharpness)
 {
     char val[16];
-    snprintf(val, sizeof(val), "%d", sharpness);
+    sprintf(val, "%d", sharpness);
     updateParamEntry(KEY_QC_SHARPNESS, val);
     CDBG("%s: Setting sharpness %s", __func__, val);
 
@@ -5741,7 +5738,7 @@ int32_t QCameraParameters::setSharpness(int sharpness)
 int32_t QCameraParameters::setSkinToneEnhancement(int sceFactor)
 {
     char val[16];
-    snprintf(val, sizeof(val), "%d", sceFactor);
+    sprintf(val, "%d", sceFactor);
     updateParamEntry(KEY_QC_SCE_FACTOR, val);
     CDBG("%s: Setting skintone enhancement %s", __func__, val);
 
@@ -5767,7 +5764,7 @@ int32_t QCameraParameters::setSkinToneEnhancement(int sceFactor)
 int32_t QCameraParameters::setSaturation(int saturation)
 {
     char val[16];
-    snprintf(val, sizeof(val), "%d", saturation);
+    sprintf(val, "%d", saturation);
     updateParamEntry(KEY_QC_SATURATION, val);
     CDBG("%s: Setting saturation %s", __func__, val);
 
@@ -5793,7 +5790,7 @@ int32_t QCameraParameters::setSaturation(int saturation)
 int32_t QCameraParameters::setContrast(int contrast)
 {
     char val[16];
-    snprintf(val, sizeof(val), "%d", contrast);
+    sprintf(val, "%d", contrast);
     updateParamEntry(KEY_QC_CONTRAST, val);
     CDBG("%s: Setting contrast %s", __func__, val);
 
@@ -5999,7 +5996,7 @@ int32_t QCameraParameters::setFaceRecognition(const char *faceRecog,
 int32_t QCameraParameters::setZoom(int zoom_level)
 {
     char val[16];
-    snprintf(val, sizeof(val), "%d", zoom_level);
+    sprintf(val, "%d", zoom_level);
     updateParamEntry(KEY_ZOOM, val);
 
     return AddSetParmEntryToBatch(m_pParamBuf,
@@ -6557,7 +6554,7 @@ int32_t QCameraParameters::setLensShadeValue(const char *lensShadeStr)
 int32_t QCameraParameters::setExposureCompensation(int expComp)
 {
     char val[16];
-    snprintf(val, sizeof(val), "%d", expComp);
+    sprintf(val, "%d", expComp);
     updateParamEntry(KEY_EXPOSURE_COMPENSATION, val);
 
     // Don't need to pass step as part of setParameter because
@@ -6752,7 +6749,7 @@ int QCameraParameters::getAutoFlickerMode()
       Currently setting it to default    */
     char prop[PROPERTY_VALUE_MAX];
     memset(prop, 0, sizeof(prop));
-    property_get("persist.camera.set.afd", prop, "4");
+    property_get("persist.camera.set.afd", prop, "3");
     return atoi(prop);
 }
 
@@ -7717,17 +7714,11 @@ int32_t QCameraParameters::setHDRAEBracket(cam_exp_bracketing_t hdrBracket)
 int32_t QCameraParameters::setCacheVideoBuffers(const char *cacheVideoBufStr)
 {
     if (cacheVideoBufStr != NULL) {
-        int32_t cacheVideoBuf = lookupAttr(ENABLE_DISABLE_MODES_MAP,
-                PARAM_MAP_SIZE(ENABLE_DISABLE_MODES_MAP), cacheVideoBufStr);
-        if(cacheVideoBuf != NAME_NOT_FOUND) {
-            CDBG("%s : Setting video buffer %s", __func__,
+        int32_t cacheVideoBuf = atoi(cacheVideoBufStr);
+        CDBG("%s : Setting video buffer %s", __func__,
                 (cacheVideoBuf == 0) ? "UnCached" : "Cached");
-            updateParamEntry(KEY_QC_CACHE_VIDEO_BUFFERS, cacheVideoBufStr);
-            return NO_ERROR;
-        }
-        else {
-            CDBG_HIGH("%s : Invalid mapped cache video value: %d",__func__, cacheVideoBuf);
-        }
+        updateParamEntry(KEY_QC_CACHE_VIDEO_BUFFERS, cacheVideoBufStr);
+        return NO_ERROR;
     }
     CDBG_HIGH("Invalid cache video value: %s",
             (cacheVideoBufStr == NULL) ? "NULL" : cacheVideoBufStr);
@@ -7828,10 +7819,6 @@ int32_t QCameraParameters::updateFlash(bool commitSettings)
 
     if (value != mFlashDaemonValue) {
 
-        if (isAFRunning()) {
-            CDBG("%s: AF is running, cancel AF before changing flash mode ", __func__);
-            m_pCamOpsTbl->ops->cancel_auto_focus(m_pCamOpsTbl->camera_handle);
-        }
         ALOGV("%s: Setting Flash value %d", __func__, value);
         rc = AddSetParmEntryToBatch(m_pParamBuf,
                                       CAM_INTF_PARM_LED_MODE,
@@ -9049,7 +9036,7 @@ int32_t QCameraParameters::getExifGpsProcessingMethod(char *gpsProcessingMethod,
     if(str != NULL) {
         memcpy(gpsProcessingMethod, ExifAsciiPrefix, EXIF_ASCII_PREFIX_SIZE);
         count = EXIF_ASCII_PREFIX_SIZE;
-        strlcpy(gpsProcessingMethod + EXIF_ASCII_PREFIX_SIZE, str, strlen(str)+1);
+        strncpy(gpsProcessingMethod + EXIF_ASCII_PREFIX_SIZE, str, strlen(str));
         count += (uint32_t)strlen(str);
         gpsProcessingMethod[count++] = '\0'; // increase 1 for the last NULL char
         return NO_ERROR;
@@ -10684,25 +10671,6 @@ uint8_t QCameraParameters::getLongshotStages()
         numStages = propStages;
     }
     return numStages;
-}
-
-/*===========================================================================
-* FUNCTION   : isAFRunning
-*
-* DESCRIPTION: if AF is in progress while in Auto/Macro focus modes
-*
-* PARAMETERS : none
-*
-* RETURN     : true: AF in progress
-*              false: AF not in progress
-*==========================================================================*/
-bool QCameraParameters::isAFRunning()
-{
-    bool isAFInProgress = ((mFocusState == CAM_AF_SCANNING) &&
-                          ((mFocusMode == CAM_FOCUS_MODE_AUTO) ||
-                           (mFocusMode == CAM_FOCUS_MODE_MACRO)));
-
-    return isAFInProgress;
 }
 
 }; // namespace qcamera

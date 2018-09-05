@@ -33,6 +33,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include <poll.h>
 #include <linux/media.h>
 #include <signal.h>
@@ -1624,7 +1625,7 @@ uint8_t get_num_of_cameras()
                 break;
             }
             if(entity.type == MEDIA_ENT_T_DEVNODE_V4L && entity.group_id == QCAMERA_VNODE_GROUP_ID) {
-                strlcpy(g_cam_ctrl.video_dev_name[num_cameras],
+                strncpy(g_cam_ctrl.video_dev_name[num_cameras],
                      entity.name, sizeof(entity.name));
                 break;
             }
@@ -1747,7 +1748,7 @@ uint8_t check_cam_access(uint8_t camera_idx)
     //if we have atleast 1 YUV sensor. Both BAYER is not supported.
     //TBD : For >2 sensors, we have to check sensor type along with VFE
     //capability and is not tested so far. So, return TRUE for now.
-    if (g_cam_ctrl.num_cam == 2 && camera_idx < 2) {
+    if (g_cam_ctrl.num_cam == 2) {
         memset(prop, 0, sizeof(prop));
         property_get("persist.camera.pip.support", prop, "1");
         if (g_cam_ctrl.cam_obj[1 - camera_idx] == NULL) {

@@ -35,7 +35,7 @@ LOCAL_SRC_FILES := \
 
 LOCAL_MODULE := libmmjpeg_interface
 LOCAL_32_BIT_ONLY := true
-LOCAL_SHARED_LIBRARIES := libdl libcutils liblog libqomx_core
+LOCAL_SHARED_LIBRARIES := libdl libcutils liblog libqomx_core libutils
 LOCAL_MODULE_TAGS := optional
 LOCAL_VENDOR_MODULE := true
 
