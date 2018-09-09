@@ -36,7 +36,7 @@ ro.qualcomm.bt.hci_transport=smd
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.sf.lcd_density=320 \
+ro.sf.lcd_density=288 \
 debug.hwui.use_buffer_age=false \
 debug.composition.type=c2d \
 debug.mdpcomp.idletime=600 \

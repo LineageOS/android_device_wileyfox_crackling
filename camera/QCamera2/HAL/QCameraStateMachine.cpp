@@ -1,4 +1,4 @@
-/* Copyright (c) 2012-2014, The Linux Foundataion. All rights reserved.
+/* Copyright (c) 2012-2015, The Linux Foundataion. All rights reserved.
 *
 * Redistribution and use in source and binary forms, with or without
 * modification, are permitted provided that the following conditions are
@@ -1191,6 +1191,7 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
             rc = m_parent->sendCommand(cmd_payload->cmd,
                                        cmd_payload->arg1,
                                        cmd_payload->arg2);
+#ifndef VANILLA_HAL
             if (CAMERA_CMD_LONGSHOT_ON == cmd_payload->cmd) {
                 if (QCAMERA_SM_EVT_RESTART_PERVIEW == cmd_payload->arg1) {
                     m_parent->stopPreview();
@@ -1206,6 +1207,7 @@ int32_t QCameraStateMachine::procEvtPreviewingState(qcamera_sm_evt_enum_t evt,
                     }
                 }
             }
+#endif
             result.status = rc;
             result.request_api = evt;
             result.result_type = QCAMERA_API_RESULT_TYPE_DEF;
@@ -1663,10 +1665,12 @@ int32_t QCameraStateMachine::procEvtPicTakingState(qcamera_sm_evt_enum_t evt,
             rc = m_parent->sendCommand(cmd_payload->cmd,
                                        cmd_payload->arg1,
                                        cmd_payload->arg2);
+#ifndef VANILLA_HAL
             if ( CAMERA_CMD_LONGSHOT_OFF == cmd_payload->cmd ) {
                 // move state to previewing state
                 m_state = QCAMERA_SM_STATE_PREVIEWING;
             }
+#endif
             result.status = rc;
             result.request_api = evt;
             result.result_type = QCAMERA_API_RESULT_TYPE_DEF;
@@ -2744,10 +2748,12 @@ int32_t QCameraStateMachine::procEvtPreviewPicTakingState(qcamera_sm_evt_enum_t 
             rc = m_parent->sendCommand(cmd_payload->cmd,
                                        cmd_payload->arg1,
                                        cmd_payload->arg2);
+#ifndef VANILLA_HAL
             if ( CAMERA_CMD_LONGSHOT_OFF == cmd_payload->cmd ) {
                 // move state to previewing state
                 m_state = QCAMERA_SM_STATE_PREVIEWING;
             }
+#endif
             result.status = rc;
             result.request_api = evt;
             result.result_type = QCAMERA_API_RESULT_TYPE_DEF;
@@ -2896,6 +2902,9 @@ int32_t QCameraStateMachine::procEvtPreviewPicTakingState(qcamera_sm_evt_enum_t 
                 break;
             case QCAMERA_INTERNAL_EVT_FOCUS_POS_UPDATE:
                 rc = m_parent->processFocusPositionInfo(internal_evt->focus_pos);
+                break;
+            case QCAMERA_INTERNAL_EVT_RESET_FRAME_ID:
+                rc = m_parent->processFrameIDReset(internal_evt->reset_frame_idx);
                 break;
             default:
                 break;

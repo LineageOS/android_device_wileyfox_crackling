@@ -391,6 +391,7 @@ private:
     int32_t processAWBUpdate(cam_awb_params_t &awb_params);
     int32_t processFocusPositionInfo(cam_focus_pos_info_t &cur_pos_info);
     int32_t processAEInfo(cam_ae_params_t &ae_params);
+    int32_t processFrameIDReset(uint32_t frame_id);
 
     int32_t sendEvtNotify(int32_t msg_type, int32_t ext1, int32_t ext2);
     int32_t sendDataNotify(int32_t msg_type,
@@ -568,7 +569,6 @@ private:
     // and beforeany focus callback/cancel_focus happens. This flag is not an indication
     // of whether lens is moving or not.
     bool m_bAutoFocusRunning;
-    cam_autofocus_state_t m_currentFocusState;
 
     power_module_t *m_pPowerModule;   // power module
 
@@ -667,7 +667,6 @@ private:
     bool TsMakeupProcess_Snapshot(mm_camera_buf_def_t *pFrame,QCameraStream * pStream);
     bool TsMakeupProcess(mm_camera_buf_def_t *frame,QCameraStream * stream,unsigned char *makeupOutBuf,TSRect& faceRect);
 #endif
-    QCameraVideoMemory *mVideoMem;
 };
 
 }; // namespace qcamera
