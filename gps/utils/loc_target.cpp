@@ -34,6 +34,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
+#include <unistd.h>
 #include <hardware/gps.h>
 #include <cutils/properties.h>
 #include "loc_target.h"

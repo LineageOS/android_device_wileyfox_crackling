@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017 The LineageOS Project
+# Copyright (C) 2017-2018 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,18 +34,19 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
-# Default to sanitizing the vendor folder before extraction
-CLEAN_VENDOR=true
+# default to not sanitizing the vendor folder before extraction
+clean_vendor=false
 
 while [ "$1" != "" ]; do
     case $1 in
-        -n | --no-cleanup )     CLEAN_VENDOR=false
+        -p | --path )           shift
+                                SRC=$1
                                 ;;
         -s | --section )        shift
                                 SECTION=$1
-                                CLEAN_VENDOR=false
+                                clean_vendor=false
                                 ;;
-        * )                     SRC=$1
+        -c | --clean-vendor )   clean_vendor=true
                                 ;;
     esac
     shift
@@ -56,7 +57,7 @@ if [ -z "$SRC" ]; then
 fi
 
 # Initialize the helper
-setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
+setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false $clean_vendor
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 extract "$MY_DIR"/proprietary-files-twrp.txt "$SRC" "$SECTION"

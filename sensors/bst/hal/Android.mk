@@ -55,7 +55,7 @@ LOCAL_SRC_FILES :=\
 
 LOCAL_C_INCLUDES = $(LOCAL_PATH)/../version
 
-LOCAL_SHARED_LIBRARIES := liblog libcutils
+LOCAL_SHARED_LIBRARIES := liblog libcutils libhardware libutils
 LOCAL_PRELINK_MODULE := false
 
 include $(LOCAL_PATH)/../tools/l8150_config.mk

@@ -28,7 +28,7 @@ PRODUCT_DEVICE := crackling
 PRODUCT_GMS_CLIENTID_BASE := android-wileyfox
 
 PRODUCT_MANUFACTURER := Wileyfox
-PRODUCT_MODEL := Wileyfox Swift
+PRODUCT_MODEL := Swift
 
 PRODUCT_BRAND := Wileyfox
 TARGET_VENDOR := wileyfox
