@@ -29,6 +29,10 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
 # Camera
 BOARD_CAMERA_SENSORS := s5k5e2_olq5f19 s5k3m2_olqba20
 USE_DEVICE_SPECIFIC_CAMERA := true
+TARGET_PROCESS_SDK_VERSION_OVERRIDE := \
+    /system/bin/cameraserver=22 \
+    /system/bin/mediaserver=22 \
+    /system/vendor/bin/mm-qcamera-daemon=22
 
 # Filesystem
 BOARD_FLASH_BLOCK_SIZE := 131072
