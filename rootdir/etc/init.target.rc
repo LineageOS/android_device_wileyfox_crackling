@@ -59,6 +59,7 @@ on charger
 service sensord /system/vendor/bin/sensord
     class main
     user root
+    group root readproc
 
 on property:init.svc.zygote=restarting
     restart sensord
