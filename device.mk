@@ -117,7 +117,7 @@ PRODUCT_PACKAGES += \
 
 # Touchscreen
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/display/synaptics_dsx_fw_update_boyi.bin:system/etc/firmware/synaptics_dsx_fw_update_boyi.bin
+    $(LOCAL_PATH)/display/synaptics_dsx_fw_update_boyi.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/synaptics_dsx_fw_update_boyi.bin
 
 # USB ID
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
