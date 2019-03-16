@@ -3,3 +3,6 @@
 /data/misc/sensor(/.*)?                                               u:object_r:sensors_data_file:s0
 /sys/devices/soc\.0/78b6000\.i2c/i2c-0/0-0010/input/input[23](/.*)?   u:object_r:sysfs_sensors:s0
 /sys/devices/soc\.0/78b6000\.i2c/i2c-0/0-0023/input/input[45](/.*)?   u:object_r:sysfs_sensors:s0
+/sys/devices/virtual/input/input[0-9]+/bandwith                       u:object_r:sysfs_sensors:s0
+/sys/devices/virtual/input/input[0-9]+/op_mode                        u:object_r:sysfs_sensors:s0
+/sys/devices/virtual/input/input[0-9]+/rept_xy                        u:object_r:sysfs_sensors:s0
