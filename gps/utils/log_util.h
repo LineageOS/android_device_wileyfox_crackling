@@ -135,7 +135,6 @@ extern char* get_timestamp(char* str, unsigned long buf_size);
         }                                                                     \
     } while(0)
 
-
 #define LOG_I(ID, WHAT, SPEC, VAL) LOG_(LOC_LOGI, ID, WHAT, SPEC, VAL)
 #define LOG_V(ID, WHAT, SPEC, VAL) LOG_(LOC_LOGV, ID, WHAT, SPEC, VAL)
 
