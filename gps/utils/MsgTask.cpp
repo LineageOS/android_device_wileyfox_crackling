@@ -63,9 +63,9 @@ MsgTask::~MsgTask() {
 }
 
 void MsgTask::destroy() {
-    LocThread* thread = mThread;
     msg_q_unblock((void*)mQ);
-    if (thread) {
+    if (mThread) {
+        LocThread* thread = mThread;
         mThread = NULL;
         delete thread;
     } else {
