@@ -87,6 +87,8 @@ int loc_eng_nmea_put_checksum(char *pNmea, int maxSize)
     int length = 0;
 
     pNmea++; //skip the $
+    length++;
+
     while (*pNmea != '\0')
     {
         checksum ^= *pNmea++;
