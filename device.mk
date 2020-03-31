@@ -121,6 +121,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.sensors@1.0-impl
 
+# System Properties
+$(call inherit-product, device/wileyfox/crackling/system_prop.mk)
+
 # Touchscreen
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/display/synaptics_dsx_fw_update_boyi.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/synaptics_dsx_fw_update_boyi.bin
