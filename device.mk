@@ -140,6 +140,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.usb.id.ums_adb=2285 \
     ro.usb.vid=2970
 
+# loggy
+PRODUCT_PACKAGES += \
+    loggy.sh
+
 # Wi-Fi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/prima/WCNSS_cfg.dat \
