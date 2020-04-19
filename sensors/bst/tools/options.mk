@@ -284,19 +284,3 @@ endif
 ifneq (, $(magnetic_accuracy_thres))
 LOCAL_CFLAGS += -DCUST_MAGNETIC_ACCURACY_THRES=$(magnetic_accuracy_thres)
 endif
-
-
-install:
-	@echo =====================================================
-	@echo installing for $(acc_name) $(bmm) $(gyro_name)...
-	@adb remount
-	@adb shell rm /system/etc/sensor/*
-	@adb push $(REAL_LOCAL_PATH)/spec/accel_spec_$(acc_name).txt /system/etc/sensor/accel_spec.txt
-	@adb push $(REAL_LOCAL_PATH)/spec/mag_spec_$(bmm).txt /system/etc/sensor/mag_spec.txt
-	@adb push $(REAL_LOCAL_PATH)/spec/gyro_spec_$(gyro_name).txt /system/etc/sensor/gyro_spec.txt
-	@adb push $(REAL_LOCAL_PATH)/spec/usecase_$(usecase).txt /system/etc/sensor/
-	@adb push $(LOCAL_BUILT_MODULE) /system/bin/
-ifneq (, $(axis_config))
-	@adb push $(REAL_LOCAL_PATH)/spec/axis_cfg_$(axis_config).txt /etc/sensor/sensord_cfg_axis
-endif
-	@adb reboot
