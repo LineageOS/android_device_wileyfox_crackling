@@ -286,12 +286,8 @@ vendor/lib64/libthermalioctl.so
 vendor/lib/libthermalclient.so
 
 # Time services
--app/TimeService/TimeService.apk:vendor/app/TimeService/TimeService.apk
-bin/time_daemon:vendor/bin/time_daemon
 -vendor/lib64/libtime_genoff.so
-vendor/lib64/libTimeService.so
 -vendor/lib/libtime_genoff.so
-vendor/lib/libTimeService.so
 
 # Widevine - from angler - OPR6.170623.017 factory image
 vendor/lib/mediadrm/libwvdrmengine.so|66ba66d047044f92eb0eada1faf6a5799ded90ab
