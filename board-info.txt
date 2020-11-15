@@ -1,1 +1,2 @@
 require board=CRACKLING
+require version-bootloader=crackling-13-ge86e772
